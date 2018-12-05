@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543887380106.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2470880562",
+    "id" : "629DF8EA",
+    "lastKnownWriteTime" : 1543934777,
+    "last_content_update" : 1543934777997,
+    "path" : "~/Documents/Fall 18/830/EE_project/analysis.Rmd",
+    "project_path" : "analysis.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "13,26",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

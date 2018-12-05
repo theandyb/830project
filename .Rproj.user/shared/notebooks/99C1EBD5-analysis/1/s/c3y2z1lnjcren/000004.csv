@@ -1,0 +1,8 @@
+"0","df <- df %>% mutate(halfPace = secs_per_mile(split, 13.1),
+                    fullPace = secs_per_mile(final, 26.2),
+                    secondHalf = hms(as.numeric(final - split)),
+                    secondHalfPace = secs_per_mile(secondHalf, 13.1),
+                    BQ = is_bq(final, gender, age))
+"
+"2","the condition has length > 1 and only the first element will be used"
+"2","the condition has length > 1 and only the first element will be used"

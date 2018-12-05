@@ -6,12 +6,13 @@ output: html_notebook
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(lubridate)
-library(hms)
+library(hms::hms)
 ```
 
 ```{r}
-df <- read_csv("data/marathon-data.csv")
-names(df)[3] <- "firstHalf"
+#df <- read_csv("data/marathon-data.csv")
+#names(df)[3] <- "firstHalf"
+df <- read_tsv("data/marathon_wide.tsv")
 head(df)
 ```
 
@@ -24,40 +25,77 @@ secs_per_mile <- function(x, distance){
 
 is_bq <- function(x, gender, age){
   if(gender == "M"){
-    if(age <= 35 & x < hms(00, 5, 3)) return(1)
-    else if( age > 35 & age <= 39 & x < hms(00, 10, 3)) return(1)
-    else if( age > 39 & age <= 44 & x < hms(00, 15, 3)) return(1)
-    else if( age > 44 & age <= 49 & x < hms(00, 25, 3)) return(1)
-    else if( age > 49 & age <= 54 & x < hms(00, 30, 3)) return(1)
-    else if( age > 54 & age <= 59 & x < hms(00, 40, 3)) return(1)
-    else if( age > 59 & age <= 64 & x < hms(00, 55, 3)) return(1)
-    else if( age > 64 & age <= 69 & x < hms(00, 10, 4)) return(1)
-    else if( age > 69 & age <= 74 & x < hms(00, 25, 4)) return(1)
-    else if( age > 74 & age <= 79 & x < hms(00, 40, 4)) return(1)
-    else if( age > 79 & x < hms(00, 55, 4)) return(1)
+    if(age <= 35 & x < hms::hms(00, 5, 3)) return(1)
+    else if( age > 35 & age <= 39 & x < hms::hms(00, 10, 3)) return(1)
+    else if( age > 39 & age <= 44 & x < hms::hms(00, 15, 3)) return(1)
+    else if( age > 44 & age <= 49 & x < hms::hms(00, 25, 3)) return(1)
+    else if( age > 49 & age <= 54 & x < hms::hms(00, 30, 3)) return(1)
+    else if( age > 54 & age <= 59 & x < hms::hms(00, 40, 3)) return(1)
+    else if( age > 59 & age <= 64 & x < hms::hms(00, 55, 3)) return(1)
+    else if( age > 64 & age <= 69 & x < hms::hms(00, 10, 4)) return(1)
+    else if( age > 69 & age <= 74 & x < hms::hms(00, 25, 4)) return(1)
+    else if( age > 74 & age <= 79 & x < hms::hms(00, 40, 4)) return(1)
+    else if( age > 79 & x < hms::hms(00, 55, 4)) return(1)
     else return(0)
   } else {
-    if(age <= 34 & x < hms(00, 35, 3)) return(1)
-    else if( age > 34 & age <= 39 & x < hms(00, 40, 3)) return(1)
-    else if( age > 39 & age <= 44 & x < hms(00, 45, 3)) return(1)
-    else if( age > 44 & age <= 49 & x < hms(00, 55, 3)) return(1)
-    else if( age > 49 & age <= 54 & x < hms(00, 00, 4)) return(1)
-    else if( age > 54 & age <= 59 & x < hms(00, 10, 4)) return(1)
-    else if( age > 59 & age <= 64 & x < hms(00, 25, 4)) return(1)
-    else if( age > 64 & age <= 69 & x < hms(00, 40, 4)) return(1)
-    else if( age > 69 & age <= 74 & x < hms(00, 55, 4)) return(1)
-    else if( age > 74 & age <= 79 & x < hms(00, 10, 5)) return(1)
-    else if( age > 79 & x < hms(00, 25, 5)) return(1)
+    if(age <= 34 & x < hms::hms(00, 35, 3)) return(1)
+    else if( age > 34 & age <= 39 & x < hms::hms(00, 40, 3)) return(1)
+    else if( age > 39 & age <= 44 & x < hms::hms(00, 45, 3)) return(1)
+    else if( age > 44 & age <= 49 & x < hms::hms(00, 55, 3)) return(1)
+    else if( age > 49 & age <= 54 & x < hms::hms(00, 00, 4)) return(1)
+    else if( age > 54 & age <= 59 & x < hms::hms(00, 10, 4)) return(1)
+    else if( age > 59 & age <= 64 & x < hms::hms(00, 25, 4)) return(1)
+    else if( age > 64 & age <= 69 & x < hms::hms(00, 40, 4)) return(1)
+    else if( age > 69 & age <= 74 & x < hms::hms(00, 55, 4)) return(1)
+    else if( age > 74 & age <= 79 & x < hms::hms(00, 10, 5)) return(1)
+    else if( age > 79 & x < hms::hms(00, 25, 5)) return(1)
     else return(0)
   }
 }
 
-df <- df %>% mutate(halfPace = secs_per_mile(split, 13.1),
-                    fullPace = secs_per_mile(final, 26.2),
-                    secondHalf = hms(as.numeric(final - split)),
-                    secondHalfPace = secs_per_mile(secondHalf, 13.1))
-df <- df %>% 
-  rowwise() %>% 
-  mutate(BQ = is_bq(final, gender, age))
+#df <- df %>% mutate(halfPace = secs_per_mile(firstHalf, 13.1),
+#                    fullPace = secs_per_mile(final, 26.2),
+#                    secondHalf = hms::hms(as.numeric(final - firstHalf)),
+#                    secondHalfPace = secs_per_mile(secondHalf, 13.1))
+#df <- df %>% 
+#  rowwise() %>% 
+#  mutate(BQ = is_bq(final, gender, age))
+
+#df['diffPace'] <- df$secondHalfPace - df$halfPace
+#df['ID'] <- seq(1, length(df$age))
+#write.table(df, file = "data/marathon_wide.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+```
+
+# Histograms
+
+```{r}
+df %>% ggplot(aes(x = halfPace)) + geom_histogram() +
+  scale_x_continuous(name = "Half Time (pace/mile)", breaks = c(250, 500, 750, 1000, 1250), 
+                     labels = c("54:35 (4:10)", "1:49:10 (8:20)", "2:43:35 (12:30)", "3:38:20 (16:40)", "4:32:55 (20:50)")) +
+  ylab("Frequency") + ggtitle("Half Marathon Split Times")
+```
+
+```{r}
+df %>% ggplot(aes(x = fullPace)) + geom_histogram()  +
+  scale_x_continuous(name = "Full Time (pace/mile)", breaks = c(250, 500, 750, 1000, 1250), 
+                     labels = c("1:49:10 (4:10)", "3:38:20 (8:20)", "5:27:30 (12:30)", "7:16:40 (16:40)", "9:05:50 (20:50)")) +
+  ylab("Frequency") + ggtitle("Marathon Times")
+```
+
+```{r}
+df %>% ggplot(aes(x = diffPace)) + geom_histogram()
+```
+
+# Tall Data
+
+```{r}
+df_tall <- df %>% select(ID, age, gender, BQ, fullPace, halfPace, secondHalfPace) %>%
+  gather(segment, pace, halfPace:secondHalfPace)
+
+head(df_tall)
+```
+```{r}
+df_tall['rel_pace'] <- df_tall$pace / df_tall$fullPace
+df_tall %>% filter(segment == "halfPace") %>% ggplot(aes(x = rel_pace)) + geom_histogram()
 ```
 

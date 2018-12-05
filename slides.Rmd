@@ -1,0 +1,38 @@
+---
+title: "Pacing Profiles for 37,250 Marathoners"
+author: "Andy Beck"
+date: "6 - December - 2018"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, kunoichi, "custom.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+# Marathons?
+.footnote[
+\* Figures courtesy of [Running USA](https://www.runningusa.org/RUSA/Research/Recent_Reports/Marathon_Report/RUSA/Research/Recent_Reports/Marathon_Report.aspx)
+]
+
+* Foot races of 26.2 miles (~42.2km)
+* Emerged in tandem with the modern olympics
+
+.center[Estimated U.S. Marathon Finishers\*]
+
+|Year|Number of Finishers|
+|:-:|:-:|
+|2013|541,000|
+|2014|550,600|
+|2015|509,000|
+|2016|507,600|
+
+--
+
+* Various goals, but generally looking to improve
+

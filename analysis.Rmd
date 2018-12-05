@@ -6,7 +6,7 @@ output: html_notebook
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(lubridate)
-library(hms::hms)
+library(hms)
 ```
 
 ```{r}

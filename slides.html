@@ -138,7 +138,7 @@ count:false
 
   * Age, Gender, Half Split, Finish Time
   
-  * Courtesy of [Jake Vanderplas](http://vanderplas.com/)
+  * Courtesy of [Jake VanderPlas](http://vanderplas.com/)
   
 * Additional Computed Variables
 
@@ -147,6 +147,8 @@ count:false
   * Pace (full, each half)
   
   * BQ
+  
+  * Top 10%
 
 ---
 
@@ -313,15 +315,15 @@ print(xtable(fit1), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Wed Dec 05 22:28:11 2018 --&gt;
+&lt;!-- Thu Dec  6 00:40:43 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std.err &lt;/th&gt; &lt;th&gt; Wald &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|W|) &lt;/th&gt;  &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.8691 &lt;/td&gt; &lt;td align="right"&gt; 0.0004 &lt;/td&gt; &lt;td align="right"&gt; 5511073.80 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0002 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0018 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0018 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; factor(segment)secondHalfPace &lt;/td&gt; &lt;td align="right"&gt; 0.2618 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 333919.13 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0016 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0016 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
    &lt;/table&gt;
 ---
 
@@ -333,7 +335,7 @@ print(xtable(fit2), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Wed Dec 05 22:28:21 2018 --&gt;
+&lt;!-- Thu Dec  6 00:40:49 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std.err &lt;/th&gt; &lt;th&gt; Wald &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|W|) &lt;/th&gt;  &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; -0.1395 &lt;/td&gt; &lt;td align="right"&gt; 0.0004 &lt;/td&gt; &lt;td align="right"&gt; 114202.14 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
@@ -346,46 +348,47 @@ print(xtable(fit2), type = "html")
 ---
 
 
+
 ```r
-fit3 &lt;- lm(diffPace ~ ageN + factor(gender) + factor(BQ) + factor(top10Q), data = df)
+fit3 &lt;- lm(relDiff ~ ageN + factor(gender) + factor(BQ) + factor(top10Q), data = df)
 print(xtable(fit3), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Wed Dec 05 22:56:31 2018 --&gt;
+&lt;!-- Thu Dec  6 00:44:14 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; t value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|t|) &lt;/th&gt;  &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 191.1923 &lt;/td&gt; &lt;td align="right"&gt; 0.6401 &lt;/td&gt; &lt;td align="right"&gt; 298.71 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 7.6445 &lt;/td&gt; &lt;td align="right"&gt; 0.5139 &lt;/td&gt; &lt;td align="right"&gt; 14.88 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 31.2826 &lt;/td&gt; &lt;td align="right"&gt; 1.0679 &lt;/td&gt; &lt;td align="right"&gt; 29.29 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -71.1534 &lt;/td&gt; &lt;td align="right"&gt; 2.8015 &lt;/td&gt; &lt;td align="right"&gt; -25.40 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -109.1649 &lt;/td&gt; &lt;td align="right"&gt; 2.6213 &lt;/td&gt; &lt;td align="right"&gt; -41.65 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.2767 &lt;/td&gt; &lt;td align="right"&gt; 0.0007 &lt;/td&gt; &lt;td align="right"&gt; 386.53 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 0.0027 &lt;/td&gt; &lt;td align="right"&gt; 0.0006 &lt;/td&gt; &lt;td align="right"&gt; 4.62 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 0.0171 &lt;/td&gt; &lt;td align="right"&gt; 0.0012 &lt;/td&gt; &lt;td align="right"&gt; 14.28 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0858 &lt;/td&gt; &lt;td align="right"&gt; 0.0031 &lt;/td&gt; &lt;td align="right"&gt; -27.38 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -0.1334 &lt;/td&gt; &lt;td align="right"&gt; 0.0029 &lt;/td&gt; &lt;td align="right"&gt; -45.50 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
    &lt;/table&gt;
 
 ---
 
 
 ```r
-fit4 &lt;- lm(diffPace ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
+fit4 &lt;- lm(relDiff ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
 print(xtable(fit3), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Wed Dec 05 22:56:31 2018 --&gt;
+&lt;!-- Thu Dec  6 00:44:14 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; t value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|t|) &lt;/th&gt;  &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 191.1923 &lt;/td&gt; &lt;td align="right"&gt; 0.6401 &lt;/td&gt; &lt;td align="right"&gt; 298.71 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 7.6445 &lt;/td&gt; &lt;td align="right"&gt; 0.5139 &lt;/td&gt; &lt;td align="right"&gt; 14.88 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 31.2826 &lt;/td&gt; &lt;td align="right"&gt; 1.0679 &lt;/td&gt; &lt;td align="right"&gt; 29.29 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -71.1534 &lt;/td&gt; &lt;td align="right"&gt; 2.8015 &lt;/td&gt; &lt;td align="right"&gt; -25.40 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -109.1649 &lt;/td&gt; &lt;td align="right"&gt; 2.6213 &lt;/td&gt; &lt;td align="right"&gt; -41.65 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.2767 &lt;/td&gt; &lt;td align="right"&gt; 0.0007 &lt;/td&gt; &lt;td align="right"&gt; 386.53 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 0.0027 &lt;/td&gt; &lt;td align="right"&gt; 0.0006 &lt;/td&gt; &lt;td align="right"&gt; 4.62 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 0.0171 &lt;/td&gt; &lt;td align="right"&gt; 0.0012 &lt;/td&gt; &lt;td align="right"&gt; 14.28 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0858 &lt;/td&gt; &lt;td align="right"&gt; 0.0031 &lt;/td&gt; &lt;td align="right"&gt; -27.38 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -0.1334 &lt;/td&gt; &lt;td align="right"&gt; 0.0029 &lt;/td&gt; &lt;td align="right"&gt; -45.50 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
    &lt;/table&gt;
 ---
 class: center, middle
 ![](slides_files/figure-html/qqplot-1.png)&lt;!-- --&gt;
 
 ```
-## [1] 36714 37232
+## [1] 23304 36714
 ```
 
 ---

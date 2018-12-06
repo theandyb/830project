@@ -143,7 +143,7 @@ $$S = (y - x\beta)^T(y - x\beta) + (\beta - \hat{\beta})^T(X^TX)(\beta - \hat{\b
 
   * Age, Gender, Half Split, Finish Time
   
-  * Courtesy of [Jake Vanderplas](http://vanderplas.com/)
+  * Courtesy of [Jake VanderPlas](http://vanderplas.com/)
   
 * Additional Computed Variables
 
@@ -152,6 +152,8 @@ $$S = (y - x\beta)^T(y - x\beta) + (\beta - \hat{\beta})^T(X^TX)(\beta - \hat{\b
   * Pace (full, each half)
   
   * BQ
+  
+  * Top 10%
 
 ---
 
@@ -291,22 +293,25 @@ fit2 <- geeglm(RelPace ~ ageN + factor(gender) + factor(BQ) + factor(segment) + 
 print(xtable(fit2), type = "html")
 ```
 ---
+```{r message=FALSE, warning=FALSE, include=FALSE}
+df['relDiff'] <- df$diffPace / df$fullPace
+```
 
 ```{r model3, results='asis'}
-fit3 <- lm(diffPace ~ ageN + factor(gender) + factor(BQ) + factor(top10Q), data = df)
+fit3 <- lm(relDiff ~ ageN + factor(gender) + factor(BQ) + factor(top10Q), data = df)
 print(xtable(fit3), type = "html")
 ```
 
 ---
 
 ```{r model4, results='asis'}
-fit4 <- lm(diffPace ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
+fit4 <- lm(relDiff ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
 print(xtable(fit3), type = "html")
 ```
 ---
 class: center, middle
 ```{r qqplot, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
-qqPlot(fit3, main="QQ Plot")
+qqPlot(fit4, main="QQ Plot")
 ```
 
 ---

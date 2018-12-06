@@ -151,6 +151,9 @@ $$S = (y - x\beta)^T(y - x\beta) + (\beta - \hat{\beta})^T(X^TX)(\beta - \hat{\b
   
   * Pace (full, each half)
   
+  * Relative Pace
+    * First and Second Half over Full
+  
   * BQ
   
   * Top 10%
@@ -337,7 +340,11 @@ class: inverse, center, middle
 
 * Different intermediate time points
 
+  * Frame as a missing data problem? 
+
 * Same individual appearing in more than one race
+
+* How to include information without knowing which race(s?) data comes from? 
 
 ---
 class: inverse, center, middle

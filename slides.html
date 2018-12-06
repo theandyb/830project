@@ -146,6 +146,9 @@ count:false
   
   * Pace (full, each half)
   
+  * Relative Pace
+    * First and Second Half over Full
+  
   * BQ
   
   * Top 10%
@@ -315,15 +318,15 @@ print(xtable(fit1), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Thu Dec  6 00:40:43 2018 --&gt;
+&lt;!-- Wed Dec 05 22:28:11 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std.err &lt;/th&gt; &lt;th&gt; Wald &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|W|) &lt;/th&gt;  &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.8691 &lt;/td&gt; &lt;td align="right"&gt; 0.0004 &lt;/td&gt; &lt;td align="right"&gt; 5511073.80 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0002 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0018 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0018 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; factor(segment)secondHalfPace &lt;/td&gt; &lt;td align="right"&gt; 0.2618 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 333919.13 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0016 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0016 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
    &lt;/table&gt;
 ---
 
@@ -335,7 +338,7 @@ print(xtable(fit2), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Thu Dec  6 00:40:49 2018 --&gt;
+&lt;!-- Wed Dec 05 22:28:21 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std.err &lt;/th&gt; &lt;th&gt; Wald &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|W|) &lt;/th&gt;  &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; -0.1395 &lt;/td&gt; &lt;td align="right"&gt; 0.0004 &lt;/td&gt; &lt;td align="right"&gt; 114202.14 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
@@ -355,7 +358,7 @@ print(xtable(fit3), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Thu Dec  6 00:44:14 2018 --&gt;
+&lt;!-- Thu Dec 06 09:44:30 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; t value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|t|) &lt;/th&gt;  &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.2767 &lt;/td&gt; &lt;td align="right"&gt; 0.0007 &lt;/td&gt; &lt;td align="right"&gt; 386.53 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
@@ -374,7 +377,7 @@ print(xtable(fit3), type = "html")
 ```
 
 &lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
-&lt;!-- Thu Dec  6 00:44:14 2018 --&gt;
+&lt;!-- Thu Dec 06 09:44:30 2018 --&gt;
 &lt;table border=1&gt;
 &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; t value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|t|) &lt;/th&gt;  &lt;/tr&gt;
   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.2767 &lt;/td&gt; &lt;td align="right"&gt; 0.0007 &lt;/td&gt; &lt;td align="right"&gt; 386.53 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
@@ -464,7 +467,11 @@ class: inverse, center, middle
 
 * Different intermediate time points
 
+  * Frame as a missing data problem? 
+
 * Same individual appearing in more than one race
+
+* How to include information without knowing which race(s?) data comes from? 
 
 ---
 class: inverse, center, middle

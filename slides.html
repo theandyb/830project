@@ -37,9 +37,437 @@ class: center, middle, inverse, title-slide
 |2015|509,000|
 |2016|507,600|
 
---
 
 * Various goals, but generally looking to improve
+
+???
+Inauguration in the modern Olympics. 
+
+Each year hundreds of thousands of participants complete marathons across the United States. 
+
+While goals for competitors differ, desire to improve across marathoners seems prevalent.
+
+---
+
+# Optimizing Race Performance
+
+* Influenced by a number of factors
+
+  * Nutrition
+  * Training
+  * Running Mechanics and Energy Cost
+  * Pacing Strategy
+  
+--
+
+* Expanding interest motivated scientific study
+  * Focus moreso on Nutrition, Training, and Running Mechanics
+
+---
+
+# Pacing Strategy
+
+* Can make or break a performance
+
+* Conventional wisdom: even pacing is better
+  * Alternatives: negative split; positive split
+
+--
+  
+### Open Questions
+
+1. What does the pacing profile of an average runner look like?
+
+2. How do pacing profiles vary amongst:
+
+    * Different levels of performances ("elites" versus avergage; Boston qualifiers versus non-qualifiers?)
+
+    * Age
+
+    * Gender
+    
+    * Different Races
+
+---
+# Inspiration for this work
+
+.center[
+&lt;img src="imgs/jWard.png" alt="MS Thesis"&gt;
+]
+
+--
+
+.center[
+&lt;img src="imgs/jWard2.png" alt="jWard"&gt;
+]
+
+---
+
+count: false
+
+# Inspiration for this work
+
+.center[
+&lt;img src="imgs/jWard.png" alt="MS Thesis"&gt;
+]
+
+* ~5000 Participants
+
+* Times at 3 intermediate checkpoints + finishing time
+
+---
+count:false
+# Inspiration for this work
+
+.center[
+&lt;img src="imgs/jWard.png" alt="MS Thesis"&gt;
+]
+
+
+`$$y \sim \textrm{MVN}(X\beta, \Sigma)$$`
+`$$\beta | \Sigma \sim \textrm{MVN}(\hat{\beta}, \Sigma \otimes (X^TX)^{-1})$$`
+`$$\Sigma \sim \textrm{InvWishart}(n,S)$$`
+`$$S = (y - x\beta)^T(y - x\beta) + (\beta - \hat{\beta})^T(X^TX)(\beta - \hat{\beta})$$`
+
+---
+# Data
+
+&lt;img src="imgs/p4ds.png" alt="p4ds" style="width: 200px; height: auto; top:15%; right: 15%; position: absolute; "&gt;
+
+* Marathon times from 37,250 runners
+
+  * Age, Gender, Half Split, Finish Time
+  
+  * Courtesy of [Jake Vanderplas](http://vanderplas.com/)
+  
+* Additional Computed Variables
+
+  * Second half split
+  
+  * Pace (full, each half)
+  
+  * BQ
+
+---
+
+# Data Summary
+
+
+
+### Gender
+
+|    *Gender* |  Freq |      % |
+|----------:|------:|-------:|
+|     **M** | 24665 |  66.21 |
+|     **W** | 12585 |  33.79 |
+| **Total** | 37250 | 100.00 |
+
+
+### Boston Qualifiers
+
+
+| Boston Qualifier? |  Freq |      % |
+|----------:|------:|-------:|
+|     **No** | 34073 |  91.47 |
+|     **Yes** |  3177 |   8.53 |
+| **Total** | 37250 | 100.00 |
+
+
+---
+
+# Boston Qualifiers by Gender
+
+<div class="container st-container">
+<table class="table table-bordered st-table st-table-bordered st-cross-table ">
+<thead>
+<tr>
+<th></th>
+<th colspan="2">BQ</th>
+<th></th>
+</tr>
+<tr>
+<td align="center">
+<strong>gender</strong>
+</td>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+<strong>M</strong>
+</td>
+<td>
+<span>22465&nbsp;(91.08&#37;)</span>
+</td>
+<td>
+<span>2200&nbsp;(8.92&#37;)</span>
+</td>
+<td>
+<span>24665&nbsp;(100.00&#37;)</span>
+</td>
+</tr>
+<tr>
+<td align="center">
+<strong>W</strong>
+</td>
+<td>
+<span>11608&nbsp;(92.24&#37;)</span>
+</td>
+<td>
+<span>&nbsp;977&nbsp;(7.76&#37;)</span>
+</td>
+<td>
+<span>12585&nbsp;(100.00&#37;)</span>
+</td>
+</tr>
+<tr>
+<td align="center">
+<strong>Total</strong>
+</td>
+<td>
+<span>34073&nbsp;(91.47&#37;)</span>
+</td>
+<td>
+<span>3177&nbsp;(8.53&#37;)</span>
+</td>
+<td>
+<span>37250&nbsp;(100.00&#37;)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+---
+class: center, middle, inverse
+
+# Age
+
+![](slides_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+
+---
+class: center, middle, inverse
+
+# Overall Time
+
+![](slides_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+---
+class: center, middle, inverse
+
+# Stratified by Gender
+
+![](slides_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+class: center, middle, inverse
+
+## First Half Pace Relative to Overall
+![](slides_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+class:center, middle, inverse
+
+## Second Half Pace Relative to Overall
+![](slides_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+class: center, middle, inverse
+
+## Second Half Pace Relative to Overall (By Gender)
+
+![](slides_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+
+---
+
+class: inverse, center, middle
+
+# Let's Fit Some Models!
+
+---
+
+# GEE? (This is EE, after all)
+
+$$log(y_{i,t}) = \alpha + X\beta $$
+`$$y_{i,t} = (\frac{\textrm{pace for half t}}{\textrm{overall pace}})_i$$`
+
+### Covariates
+* Age (standardized)
+* Gender
+* BQ?
+* Which segment (first or second)
+* Top 10%?
+
+---
+
+```r
+df_tall['RelPace'] &lt;- df_tall$pace / df_tall$fullPace
+fit1 &lt;- geeglm(RelPace ~ ageN + factor(gender) + factor(BQ) + factor(segment) + factor(top10Q),
+               family = gaussian(link = "identity"), data = df_tall, id = ID, corstr = "exchangeable")
+print(xtable(fit1), type = "html")
+```
+
+&lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
+&lt;!-- Wed Dec 05 22:28:11 2018 --&gt;
+&lt;table border=1&gt;
+&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std.err &lt;/th&gt; &lt;th&gt; Wald &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|W|) &lt;/th&gt;  &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 0.8691 &lt;/td&gt; &lt;td align="right"&gt; 0.0004 &lt;/td&gt; &lt;td align="right"&gt; 5511073.80 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0002 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0018 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(segment)secondHalfPace &lt;/td&gt; &lt;td align="right"&gt; 0.2618 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 333919.13 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0000 &lt;/td&gt; &lt;td align="right"&gt; 0.0016 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;td align="right"&gt; 1.0000 &lt;/td&gt; &lt;/tr&gt;
+   &lt;/table&gt;
+---
+
+```r
+df_tall['RelPace'] &lt;- df_tall$pace / df_tall$fullPace
+fit2 &lt;- geeglm(RelPace ~ ageN + factor(gender) + factor(BQ) + factor(segment) + factor(top10Q),
+               family = gaussian(link = "log"), data = df_tall, id = ID, corstr = "exchangeable")
+print(xtable(fit2), type = "html")
+```
+
+&lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
+&lt;!-- Wed Dec 05 22:28:21 2018 --&gt;
+&lt;table border=1&gt;
+&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std.err &lt;/th&gt; &lt;th&gt; Wald &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|W|) &lt;/th&gt;  &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; -0.1395 &lt;/td&gt; &lt;td align="right"&gt; 0.0004 &lt;/td&gt; &lt;td align="right"&gt; 114202.14 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 0.0002 &lt;/td&gt; &lt;td align="right"&gt; 0.0002 &lt;/td&gt; &lt;td align="right"&gt; 0.58 &lt;/td&gt; &lt;td align="right"&gt; 0.4450 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 0.0011 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 5.89 &lt;/td&gt; &lt;td align="right"&gt; 0.0152 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0056 &lt;/td&gt; &lt;td align="right"&gt; 0.0017 &lt;/td&gt; &lt;td align="right"&gt; 10.55 &lt;/td&gt; &lt;td align="right"&gt; 0.0012 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(segment)secondHalfPace &lt;/td&gt; &lt;td align="right"&gt; 0.2635 &lt;/td&gt; &lt;td align="right"&gt; 0.0005 &lt;/td&gt; &lt;td align="right"&gt; 318822.44 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -0.0086 &lt;/td&gt; &lt;td align="right"&gt; 0.0016 &lt;/td&gt; &lt;td align="right"&gt; 30.21 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+   &lt;/table&gt;
+---
+
+
+```r
+fit3 &lt;- lm(diffPace ~ ageN + factor(gender) + factor(BQ) + factor(top10Q), data = df)
+print(xtable(fit3), type = "html")
+```
+
+&lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
+&lt;!-- Wed Dec 05 22:56:31 2018 --&gt;
+&lt;table border=1&gt;
+&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; t value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|t|) &lt;/th&gt;  &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 191.1923 &lt;/td&gt; &lt;td align="right"&gt; 0.6401 &lt;/td&gt; &lt;td align="right"&gt; 298.71 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 7.6445 &lt;/td&gt; &lt;td align="right"&gt; 0.5139 &lt;/td&gt; &lt;td align="right"&gt; 14.88 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 31.2826 &lt;/td&gt; &lt;td align="right"&gt; 1.0679 &lt;/td&gt; &lt;td align="right"&gt; 29.29 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -71.1534 &lt;/td&gt; &lt;td align="right"&gt; 2.8015 &lt;/td&gt; &lt;td align="right"&gt; -25.40 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -109.1649 &lt;/td&gt; &lt;td align="right"&gt; 2.6213 &lt;/td&gt; &lt;td align="right"&gt; -41.65 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+   &lt;/table&gt;
+
+---
+
+
+```r
+fit4 &lt;- lm(diffPace ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
+print(xtable(fit3), type = "html")
+```
+
+&lt;!-- html table generated in R 3.5.1 by xtable 1.8-3 package --&gt;
+&lt;!-- Wed Dec 05 22:56:31 2018 --&gt;
+&lt;table border=1&gt;
+&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; t value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|t|) &lt;/th&gt;  &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; 191.1923 &lt;/td&gt; &lt;td align="right"&gt; 0.6401 &lt;/td&gt; &lt;td align="right"&gt; 298.71 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; ageN &lt;/td&gt; &lt;td align="right"&gt; 7.6445 &lt;/td&gt; &lt;td align="right"&gt; 0.5139 &lt;/td&gt; &lt;td align="right"&gt; 14.88 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(gender)W &lt;/td&gt; &lt;td align="right"&gt; 31.2826 &lt;/td&gt; &lt;td align="right"&gt; 1.0679 &lt;/td&gt; &lt;td align="right"&gt; 29.29 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(BQ)1 &lt;/td&gt; &lt;td align="right"&gt; -71.1534 &lt;/td&gt; &lt;td align="right"&gt; 2.8015 &lt;/td&gt; &lt;td align="right"&gt; -25.40 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; factor(top10Q)1 &lt;/td&gt; &lt;td align="right"&gt; -109.1649 &lt;/td&gt; &lt;td align="right"&gt; 2.6213 &lt;/td&gt; &lt;td align="right"&gt; -41.65 &lt;/td&gt; &lt;td align="right"&gt; 0.0000 &lt;/td&gt; &lt;/tr&gt;
+   &lt;/table&gt;
+---
+class: center, middle
+![](slides_files/figure-html/qqplot-1.png)&lt;!-- --&gt;
+
+```
+## [1] 36714 37232
+```
+
+---
+# Robust Linear Regression (IRLS)
+
+
+```r
+fit5 &lt;- rlm(diffPace ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
+knitr::kable(summary(fit5)$coefficients, format="html")
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; t value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 185.076869 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6376846 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 290.232612 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ageN &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.071619 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6159735 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14.727286 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; factor(gender)W &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33.443683 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0698153 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.261174 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; factor(BQ)1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -69.714515 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.7869983 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -25.014194 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; factor(top10Q)1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -104.648898 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.6078348 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -40.128653 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ageN:factor(gender)W &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.722799 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0819275 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.592343 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+class: inverse, center, middle
+
+# Future Work
+
+---
+
+# Race-level Effects
+
+### Including data from more than one race
+
+### Potential Difficulties
+
+* Different intermediate time points
+
+* Same individual appearing in more than one race
+
+---
+class: inverse, center, middle
+# Thanks!
+## Slides, code, data available on github
+[https://github.com/theandyb/830project](https://github.com/theandyb/830project)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

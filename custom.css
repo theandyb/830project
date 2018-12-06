@@ -83,7 +83,7 @@
 
 .remark-visible .remark-slide-scaler {overflow-y: auto;}
 .remark-code {
-  font-size: 20px;
+  font-size: 0.8em;
   line-height: 1.25;
 }
 
@@ -127,6 +127,15 @@ h4 { font-size: 1em; }
 
 body{
   font-size: 1em;
+}
+
+.tableLeft{
+  margin: initial !important;
+}
+
+.tableLeft >  table {
+  margin: initial;
+  margin-top: 10px;
 }
 
 a { color: var(--link-color); text-decoration: none; }

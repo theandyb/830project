@@ -63,6 +63,20 @@ is_bq <- function(x, gender, age){
 
 #df['diffPace'] <- df$secondHalfPace - df$halfPace
 #df['ID'] <- seq(1, length(df$age))
+
+# q10M <- df %>% filter(gender == "M") %>% pull(fullPace) %>% quantile(0.10)
+# q10W <- df %>% filter(gender == "W") %>% pull(fullPace) %>% quantile(0.10)
+# 
+# in_top_10 <- function(x, gender){
+#   if(gender == "M" & x <= q10M) return(1)
+#   else if (gender == "W" & x <= q10W) return(1)
+#   else return(0)
+# }
+# 
+# df <- df %>% 
+#   rowwise() %>% 
+#   mutate(top10Q = in_top_10(fullPace, gender))
+
 #write.table(df, file = "data/marathon_wide.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 ```
 
@@ -89,7 +103,8 @@ df %>% ggplot(aes(x = diffPace)) + geom_histogram()
 # Tall Data
 
 ```{r}
-df_tall <- df %>% select(ID, age, gender, BQ, fullPace, halfPace, secondHalfPace) %>%
+df["ageN"] <- scale(df$age)
+df_tall <- df %>% select(ID, ageN, gender, BQ, fullPace, halfPace, secondHalfPace) %>%
   gather(segment, pace, halfPace:secondHalfPace)
 
 head(df_tall)
@@ -97,5 +112,23 @@ head(df_tall)
 ```{r}
 df_tall['rel_pace'] <- df_tall$pace / df_tall$fullPace
 df_tall %>% filter(segment == "halfPace") %>% ggplot(aes(x = rel_pace)) + geom_histogram()
+```
+
+# Models
+
+```{r}
+library(geepack)
+
+df_tall['RelPace'] <- df_tall$pace / df_tall$fullPace
+
+# Test the effect of smoke using anova
+fit1 <- geeglm(log(RelPace) ~ ageN + factor(gender) + factor(BQ) + factor(segment), family = gaussian(),
+               data = df_tall, id = ID, corstr = "exchangeable")
+
+fit2 <- geeglm(RelPace ~ ageN + factor(gender) + factor(BQ) + factor(segment), family = gaussian(),
+               data = df_tall, id = ID, corstr = "independence")
+
+anova(fit1, fit2)
+
 ```
 

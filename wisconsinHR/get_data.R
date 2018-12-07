@@ -27,3 +27,17 @@ for (i in 2008:2018){
   write.csv(badTable, outFile, quote=FALSE, row.names = FALSE)
 }
 
+for (i in 2009:2018){
+  HCURL <- paste0("http://www.wisrunningstats.com/Marathon%20Honor%20Roll%20", i, "_Women.htm")
+  badTable <- getBadTable(HCURL)
+  names(badTable) <- c("Rank", "US Rank", "x", "Name", "City", "Time", "y", "Race")
+  badTable <- final_cleanse(badTable)
+  outFile <- paste0("wisconsinHR/cleanedData/", i, "W.csv")
+  write.csv(badTable, outFile, quote=FALSE, row.names = FALSE)
+}
+
+i <- 2008
+names(badTable) <- c("Rank", "US Rank", "x", "Name", "City", "Time", "y", "Race")
+badTable <- final_cleanse(badTable)
+outFile <- paste0("wisconsinHR/cleanedData/", i, "W.csv")
+write.csv(badTable, outFile, quote=FALSE, row.names = FALSE)

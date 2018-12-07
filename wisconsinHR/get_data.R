@@ -1,6 +1,7 @@
 library(tidyverse)
 library(rvest)
 library(naniar)
+library(RCurl)
 
 getBadTable <- function(resUrl, start = 5, lastCol = 8){
   rawHTML <- read_html(resUrl)
@@ -17,23 +18,12 @@ final_cleanse <- function(badTable){
   return(badTable)
 }
 
-# Men
-## 2018
-badTable <- getBadTable("http://www.wisrunningstats.com/Marathon%20Honor%20Roll%202018_Men.htm")
-names(badTable) <- c("Rank","x","y","Name", "City", "Time", "NA", "Race")
-badTable <- final_cleanse(badTable)
-write.csv(badTable, "wisconsinHR/cleanedData/2018M.csv", quote=FALSE, row.names = FALSE)
+for (i in 2008:2018){
+  HCURL <- paste0("http://www.wisrunningstats.com/Marathon%20Honor%20Roll%20", i, "_Men.htm")
+  badTable <- getBadTable(HCURL)
+  names(badTable) <- c("Rank", "US Rank", "x", "Name", "City", "Time", "y", "Race")
+  badTable <- final_cleanse(badTable)
+  outFile <- paste0("wisconsinHR/cleanedData/", i, "M.csv")
+  write.csv(badTable, outFile, quote=FALSE, row.names = FALSE)
+}
 
-## 2017
-badTable <- getBadTable("http://www.wisrunningstats.com/Marathon%20Honor%20Roll%202017_Men.htm")
-names(badTable) <- c("Rank", "US Rank", "x", "Name", "City", "Time", "y", "Race")
-badTable <- final_cleanse(badTable)
-write.csv(badTable, "wisconsinHR/cleanedData/2017M.csv", quote=FALSE, row.names = FALSE)
-
-## 2016
-badTable <- getBadTable("http://www.wisrunningstats.com/Marathon%20Honor%20Roll%202016_Men.htm")
-names(badTable) <- c("Rank", "US Rank", "x", "Name", "City", "Time", "y", "Race")
-badTable <- final_cleanse(badTable)
-write.csv(badTable, "wisconsinHR/cleanedData/2016M.csv", quote=FALSE, row.names = FALSE)
-
-## 2015

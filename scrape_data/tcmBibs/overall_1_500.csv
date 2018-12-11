@@ -1,0 +1,501 @@
+Bib,Name,Sex,Age,City,State,Overall,SexPl,DivPl,Time
+2,        Elisha Barno      ,        M      ,33,        Santa Fe      ,        NM      ,1 / 7153,1 / 3964,1 / 627,2:11:58
+3,        Boniface Kongin      ,        M      ,28,        Albuquerque      ,        NM      ,2 / 7153,2 / 3964,1 / 922,2:12:12
+42,        Birhanu Kemal      ,        M      ,32,        Albuquerque      ,        NM      ,3 / 7153,3 / 3964,2 / 627,2:14:47
+37,        Boaz Kipyego      ,        M      ,26,        Grand Prairie      ,        TX      ,4 / 7153,4 / 3964,2 / 922,2:16:35
+21,        Tyler Jerman      ,        M      ,26,        Burnsville      ,        MN      ,5 / 7153,5 / 3964,3 / 922,2:19:39
+17,        Dominic Korir      ,        M      ,25,        Plymouth      ,        MN      ,6 / 7153,6 / 3964,4 / 922,2:20:20
+5,        Cole Atkins      ,        M      ,32,        Greenville      ,        SC      ,7 / 7153,7 / 3964,3 / 627,2:20:39
+19,        Japhet Kipkoech      ,        M      ,27,        Tucson      ,        AZ      ,8 / 7153,8 / 3964,5 / 922,2:22:28
+28,        Timothy Lillehaugen      ,        M      ,28,        Minneapolis      ,        MN      ,9 / 7153,9 / 3964,6 / 922,2:23:44
+45,        John Keane      ,        M      ,37,        Blaine      ,        MN      ,10 / 7153,10 / 3964,1 / 605,2:26:31
+20,        Wilson Karanja      ,        M      ,35,        Elkriver      ,        MN      ,11 / 7153,11 / 3964,2 / 605,2:27:23
+16,        Gregory Leak      ,        M      ,30,        Tacoma      ,        WA      ,12 / 7153,12 / 3964,4 / 627,2:28:35
+41,        Andrew Van Hoogenstyn      ,        M      ,34,        New Haven      ,        CT      ,13 / 7153,13 / 3964,5 / 627,2:29:27
+2349,        Andy Beck      ,        M      ,27,        Madison      ,        WI      ,14 / 7153,14 / 3964,7 / 922,2:29:31
+13,        William Fladland      ,        M      ,28,        Anoka      ,        MN      ,15 / 7153,15 / 3964,8 / 922,2:32:01
+29,        Matthew Wiersum      ,        M      ,30,        Minneapolis      ,        MN      ,16 / 7153,16 / 3964,6 / 627,2:32:52
+6,        Levi Severson      ,        M      ,38,        Edina      ,        MN      ,20 / 7153,17 / 3964,3 / 605,2:33:35
+3866,        Brian Walker      ,        M      ,36,        Winnipeg      ,        MB      ,21 / 7153,18 / 3964,4 / 605,2:34:41
+1871,        Isaiah Friesen      ,        M      ,23,        Saint Paul      ,        MN      ,22 / 7153,19 / 3964,9 / 922,2:36:05
+40,        Anders Bowman      ,        M      ,28,        Hopkins      ,        MN      ,23 / 7153,20 / 3964,10 / 922,2:36:16
+1888,        Joshwa Kaul      ,        M      ,28,        Stillwater      ,        MN      ,24 / 7153,21 / 3964,11 / 922,2:36:19
+12,        Sean Brown      ,        M      ,30,        Loves Park      ,        IL      ,25 / 7153,22 / 3964,7 / 627,2:36:32
+2977,        Joshua Mirth      ,        M      ,26,        Fort Collins      ,        CO      ,26 / 7153,23 / 3964,12 / 922,2:36:51
+3008,        David Meyer      ,        M      ,27,        Minneapolis      ,        MN      ,27 / 7153,24 / 3964,13 / 922,2:36:52
+3521,        Toby Moore      ,        M      ,37,        Waukee      ,        IA      ,28 / 7153,25 / 3964,5 / 605,2:36:55
+3613,        Jeremy Walker      ,        M      ,36,        East St. Paul      ,        MB      ,29 / 7153,26 / 3964,6 / 605,2:37:25
+2231,        Daniel Pape      ,        M      ,23,        Iowa City      ,        IA      ,30 / 7153,27 / 3964,14 / 922,2:37:46
+1761,        Stephen Eles      ,        M      ,39,        Houghton      ,        MI      ,32 / 7153,28 / 3964,7 / 605,2:38:19
+3522,        Steffan Reimer      ,        M      ,29,        Blumenort      ,        MB      ,33 / 7153,29 / 3964,15 / 922,2:38:24
+3473,        Brian Karl      ,        M      ,22,        Chili      ,        WI      ,34 / 7153,30 / 3964,16 / 922,2:38:40
+34,        Olivier Vrambout      ,        M      ,44,        Bayport      ,        MN      ,35 / 7153,31 / 3964,1 / 498,2:38:41
+2351,        Jacob Greeneway      ,        M      ,25,        Minneapolis      ,        MN      ,36 / 7153,32 / 3964,17 / 922,2:38:58
+1594,        John Cleary      ,        M      ,20,        Omaha      ,        NE      ,38 / 7153,33 / 3964,1 / 177,2:39:30
+39,        Patrick Russell      ,        M      ,42,        St Paul      ,        MN      ,40 / 7153,34 / 3964,2 / 498,2:40:21
+2861,        Peter Janiszeski      ,        M      ,39,        Luverne      ,        MN      ,41 / 7153,35 / 3964,8 / 605,2:40:42
+2123,        Jordan Rose      ,        M      ,31,        New York      ,        NY      ,42 / 7153,36 / 3964,8 / 627,2:41:00
+2893,        Ethan Komoroski      ,        M      ,27,        Minneapolis      ,        MN      ,43 / 7153,37 / 3964,18 / 922,2:41:09
+3381,        Steven Mantell      ,        M      ,26,        Overland Park      ,        KS      ,45 / 7153,38 / 3964,19 / 922,2:41:36
+33,        Diego Vanegas      ,        M      ,43,        Fort Lee      ,        NJ      ,47 / 7153,39 / 3964,3 / 498,2:42:05
+3436,        Bradley Keefe      ,        M      ,37,        Winnipeg      ,        MB      ,48 / 7153,40 / 3964,9 / 605,2:42:12
+3407,        Nate Routhier      ,        M      ,25,        St. Paul      ,        MN      ,49 / 7153,41 / 3964,20 / 922,2:42:17
+3786,        Denis Bashkirov      ,        M      ,32,        Saint Paul      ,        MN      ,50 / 7153,42 / 3964,9 / 627,2:42:54
+3773,        Jonathan Keller      ,        M      ,24,        Circle Pines      ,        MN      ,52 / 7153,43 / 3964,21 / 922,2:42:59
+1397,        Spencer Duhaime      ,        M      ,27,        New York      ,        NY      ,53 / 7153,44 / 3964,22 / 922,2:43:24
+3221,        Pj Greer      ,        M      ,27,        Kansas City      ,        MO      ,54 / 7153,45 / 3964,23 / 922,2:43:30
+2423,        Troy Koivisto      ,        M      ,25,        Plymouth      ,        MN      ,55 / 7153,46 / 3964,24 / 922,2:43:47
+32,        Daniel Strike      ,        M      ,48,        North Oaks      ,        MN      ,57 / 7153,47 / 3964,1 / 373,2:44:29
+1091,        Andrew Nelson      ,        M      ,22,        Eden Prairie      ,        MN      ,58 / 7153,48 / 3964,25 / 922,2:44:33
+2210,        Russell Eriksen      ,        M      ,34,        Chicago      ,        IL      ,59 / 7153,49 / 3964,10 / 627,2:44:40
+14,        David Saunders      ,        M      ,33,        New York      ,        NY      ,60 / 7153,50 / 3964,11 / 627,2:45:04
+2556,        Chen Huang      ,        M      ,28,        Sunnyvale      ,        CA      ,61 / 7153,51 / 3964,26 / 922,2:45:17
+3791,        Donovan Fellows      ,        M      ,39,        Lake Elmo      ,        MN      ,62 / 7153,52 / 3964,10 / 605,2:45:31
+3384,        Gerad Mead      ,        M      ,39,        Minneapolis      ,        MN      ,63 / 7153,53 / 3964,11 / 605,2:45:33
+2967,        Kyle Becker      ,        M      ,22,        Rochester      ,        MN      ,64 / 7153,54 / 3964,27 / 922,2:45:49
+3331,        Drew Ayotte      ,        M      ,27,        Minneapolis      ,        MN      ,65 / 7153,55 / 3964,28 / 922,2:46:15
+1365,        Joe Klescewski      ,        M      ,40,        Eden Prairie      ,        MN      ,66 / 7153,56 / 3964,4 / 498,2:46:35
+1682,        Marcos Santos Melchor      ,        M      ,29,        Northfield      ,        MN      ,67 / 7153,57 / 3964,29 / 922,2:46:39
+3554,        Sean Cooley      ,        M      ,33,        Saint Paul      ,        MN      ,68 / 7153,58 / 3964,12 / 627,2:46:51
+1789,        Matthew Eidenschink      ,        M      ,24,        Duluth      ,        MN      ,69 / 7153,59 / 3964,30 / 922,2:47:29
+1135,        Tim Aldrich      ,        M      ,28,        Minneapolis      ,        MN      ,70 / 7153,60 / 3964,31 / 922,2:47:45
+2460,        Brandon Quibell      ,        M      ,24,        Hickson      ,        ND      ,71 / 7153,61 / 3964,32 / 922,2:47:49
+1192,        Erik Hoeg      ,        M      ,28,        Plymouth      ,        MN      ,72 / 7153,62 / 3964,33 / 922,2:48:19
+2856,        Ryan Errthum      ,        M      ,20,        Kalona      ,        IA      ,73 / 7153,63 / 3964,2 / 177,2:48:32
+2012,        Matti Groll      ,        M      ,23,        Brighton      ,        MA      ,74 / 7153,64 / 3964,34 / 922,2:48:44
+2694,        Nick Roetker      ,        M      ,31,        Edina      ,        MN      ,75 / 7153,65 / 3964,13 / 627,2:48:45
+1482,        Peter Somers      ,        M      ,39,        Rochester      ,        MN      ,76 / 7153,66 / 3964,12 / 605,2:48:47
+36,        Kevin Zanker      ,        M      ,53,        Burnsville      ,        MN      ,77 / 7153,67 / 3964,1 / 333,2:49:11
+2851,        Bailey Wetherell      ,        M      ,23,        Iowa City      ,        IA      ,78 / 7153,68 / 3964,35 / 922,2:49:23
+3296,        Nathaniel Scott      ,        M      ,37,        Minneapolis      ,        MN      ,79 / 7153,69 / 3964,13 / 605,2:49:30
+2207,        Brent Wathke      ,        M      ,35,        Eau Claire      ,        WI      ,81 / 7153,70 / 3964,14 / 605,2:49:39
+2369,        Brandon Eckroth      ,        M      ,23,        Saint Paul      ,        MN      ,82 / 7153,71 / 3964,36 / 922,2:49:50
+3497,        Daniel Deuhs      ,        M      ,47,        Denton      ,        TX      ,83 / 7153,72 / 3964,2 / 373,2:49:56
+3535,        Sam Westerberg      ,        M      ,26,        Fridley      ,        MN      ,85 / 7153,73 / 3964,37 / 922,2:50:10
+31,        Edward Nordstrom      ,        M      ,47,        Eagan      ,        MN      ,86 / 7153,74 / 3964,3 / 373,2:50:25
+2352,        Anthony Alt      ,        M      ,39,        Saint Paul      ,        MN      ,87 / 7153,75 / 3964,15 / 605,2:50:34
+3125,        Casey Miller      ,        M      ,40,        Brainerd      ,        MN      ,88 / 7153,76 / 3964,5 / 498,2:50:53
+3639,        Ethan Anderson      ,        M      ,24,        St Paul      ,        MN      ,89 / 7153,77 / 3964,38 / 922,2:51:10
+3823,        Eric Barnes      ,        M      ,51,        Central City      ,        NE      ,91 / 7153,78 / 3964,2 / 333,2:51:27
+3489,        Andrew Hansen      ,        M      ,24,        St. Louis Park      ,        MN      ,92 / 7153,79 / 3964,39 / 922,2:51:51
+1495,        Mike Walentiny      ,        M      ,30,        Goodview      ,        MN      ,93 / 7153,80 / 3964,14 / 627,2:51:56
+1196,        Steven Goetz      ,        M      ,43,        North Oaks      ,        MN      ,95 / 7153,81 / 3964,6 / 498,2:52:14
+2953,        Stephen Maturen      ,        M      ,30,        Minneapolis      ,        MN      ,97 / 7153,82 / 3964,15 / 627,2:52:34
+3431,        Andres Cervantes Chavarria      ,        M      ,32,        Colon      ,              ,98 / 7153,83 / 3964,16 / 627,2:52:35
+3379,        Craig Cardinal      ,        M      ,36,        Northfield      ,        MN      ,99 / 7153,84 / 3964,16 / 605,2:52:39
+2434,        Jeffrey Lanners      ,        M      ,35,        South Saint Paul      ,        MN      ,100 / 7153,85 / 3964,17 / 605,2:52:46
+3750,        Justin Rose      ,        M      ,29,        Minneapolis      ,        MN      ,102 / 7153,86 / 3964,40 / 922,2:52:55
+3166,        Stuart Cleveland      ,        M      ,24,        Minneapolis      ,        MN      ,105 / 7153,87 / 3964,41 / 922,2:53:10
+3638,        Brandon Fellows      ,        M      ,31,        Edina      ,        MN      ,106 / 7153,88 / 3964,17 / 627,2:53:10
+2014,        Scott Labott      ,        M      ,28,        Saint Paul      ,        MN      ,107 / 7153,89 / 3964,42 / 922,2:53:16
+1800,        Ryan Zenanko      ,        M      ,24,        Minneapolis      ,        MN      ,108 / 7153,90 / 3964,43 / 922,2:53:41
+1232,        Michael Brubaker      ,        M      ,29,        Saint Paul      ,        MN      ,109 / 7153,91 / 3964,44 / 922,2:53:46
+2048,        Matt Carter      ,        M      ,47,        Eleva      ,        WI      ,110 / 7153,92 / 3964,4 / 373,2:53:56
+2043,        Ryan Moore      ,        M      ,33,        Alexandria      ,        VA      ,111 / 7153,93 / 3964,18 / 627,2:54:08
+2489,        Nick Solheim      ,        M      ,23,        Moorhead      ,        MN      ,112 / 7153,94 / 3964,45 / 922,2:54:09
+1627,        Spencer Castillo      ,        M      ,23,        Minneapolis      ,        MN      ,113 / 7153,95 / 3964,46 / 922,2:54:10
+2509,        Greg Urbaniak      ,        M      ,42,        Palatine      ,        IL      ,114 / 7153,96 / 3964,7 / 498,2:54:21
+3822,        John Starke      ,        M      ,36,        Mankato      ,        MN      ,115 / 7153,97 / 3964,18 / 605,2:54:23
+44,        Andrew Baker      ,        M      ,27,        Plymouth      ,        MN      ,116 / 7153,98 / 3964,47 / 922,2:54:23
+3171,        Sam Schwebach      ,        M      ,25,        Arlington      ,        MA      ,117 / 7153,99 / 3964,48 / 922,2:54:30
+1298,        Jeremy Fink      ,        M      ,42,        Anoka      ,        MN      ,118 / 7153,100 / 3964,8 / 498,2:54:33
+3696,        Matthew Helmerichs      ,        M      ,23,        Victoria      ,        MN      ,119 / 7153,101 / 3964,49 / 922,2:54:42
+3400,        Paul Ellis      ,        M      ,38,        North Oaks      ,        MN      ,121 / 7153,102 / 3964,19 / 605,2:54:59
+2217,        Thomas Bernard      ,        M      ,23,        Iowa City      ,        IA      ,122 / 7153,103 / 3964,50 / 922,2:55:08
+2357,        Andrew Richardson      ,        M      ,29,        Mounds View      ,        MN      ,123 / 7153,104 / 3964,51 / 922,2:55:14
+2991,        Nicholas Schroeder      ,        M      ,23,        Orono      ,        MN      ,124 / 7153,105 / 3964,52 / 922,2:55:15
+3743,        Peter Haller      ,        M      ,23,        Toronto      ,        ON      ,125 / 7153,106 / 3964,53 / 922,2:55:22
+1384,        Bryan Larison      ,        M      ,35,        Minneapolis      ,        MN      ,126 / 7153,107 / 3964,20 / 605,2:55:31
+3451,        Julian Calderon      ,        M      ,24,        Boulder      ,        MN      ,127 / 7153,108 / 3964,54 / 922,2:55:36
+26,        Tim Harder      ,        M      ,33,        Somerville      ,        MA      ,128 / 7153,109 / 3964,19 / 627,2:55:47
+2510,        Joseph D'Amico      ,        M      ,44,        Palatine      ,        IL      ,129 / 7153,110 / 3964,9 / 498,2:55:49
+2824,        William Bernard      ,        M      ,35,        Grant      ,        MN      ,130 / 7153,111 / 3964,21 / 605,2:55:50
+1328,        Andrew Vogel      ,        M      ,35,        Mountain View      ,        CA      ,131 / 7153,112 / 3964,22 / 605,2:55:58
+3270,        William McGinnis      ,        M      ,38,        Madison      ,        SD      ,132 / 7153,113 / 3964,23 / 605,2:56:01
+3052,        Nathaniel Nowak      ,        M      ,43,        Hastings      ,        MN      ,133 / 7153,114 / 3964,10 / 498,2:56:05
+1560,        Slawomir Galeza      ,        M      ,39,        Gdynia      ,              ,134 / 7153,115 / 3964,24 / 605,2:56:05
+2779,        Timothy Girod      ,        M      ,36,        Minneapolis      ,        MN      ,135 / 7153,116 / 3964,25 / 605,2:56:08
+2709,        Kyle Thelemann      ,        M      ,27,        Boston      ,        MA      ,136 / 7153,117 / 3964,55 / 922,2:56:17
+3685,        Noah Andersen      ,        M      ,23,        Minneapolis      ,        MN      ,137 / 7153,118 / 3964,56 / 922,2:56:40
+3540,        Forrest Tracy      ,        M      ,39,        Saint Paul      ,        MN      ,138 / 7153,119 / 3964,26 / 605,2:56:47
+2667,        Jacob Peterson      ,        M      ,22,        Eden Prairie      ,        MN      ,139 / 7153,120 / 3964,57 / 922,2:56:48
+2219,        James Wenzel      ,        M      ,23,        Nashua      ,        IA      ,140 / 7153,121 / 3964,58 / 922,2:56:52
+2013,        Kyle Smith      ,        M      ,31,        Duluth      ,        MN      ,142 / 7153,122 / 3964,20 / 627,2:57:13
+1368,        John Berger      ,        M      ,39,        Minneapolis      ,        MN      ,143 / 7153,123 / 3964,27 / 605,2:57:17
+2069,        Tim Degrado      ,        M      ,58,        Rochester      ,        MN      ,144 / 7153,124 / 3964,1 / 214,2:57:40
+2066,        David Cosper      ,        M      ,40,        Villa Park      ,        IL      ,145 / 7153,125 / 3964,11 / 498,2:57:46
+2550,        Leroy Allen      ,        M      ,34,        Wichita      ,        KS      ,146 / 7153,126 / 3964,21 / 627,2:57:48
+1078,        Spencer Davis      ,        M      ,25,        Chaska      ,        MN      ,147 / 7153,127 / 3964,59 / 922,2:57:51
+2445,        Nick Seiske      ,        M      ,37,        Muskego      ,        WI      ,148 / 7153,128 / 3964,28 / 605,2:57:54
+3849,        Alexander Wepsala      ,        M      ,31,        Minneapolis      ,        MN      ,149 / 7153,129 / 3964,22 / 627,2:57:55
+2954,        Nicholas Kowaleski      ,        M      ,23,        Minneapolis      ,        MN      ,150 / 7153,130 / 3964,60 / 922,2:57:59
+1230,        Kyle Hall      ,        M      ,30,        Eden Prairie      ,        MN      ,151 / 7153,131 / 3964,23 / 627,2:58:03
+3490,        Ryan Donahue      ,        M      ,30,        Seattle      ,        WA      ,152 / 7153,132 / 3964,24 / 627,2:58:06
+2403,        Tom Cull      ,        M      ,37,        Greenville      ,        SC      ,154 / 7153,133 / 3964,29 / 605,2:58:06
+3195,        Patrick Crowe      ,        M      ,40,        Minneapolis      ,        MN      ,155 / 7153,134 / 3964,12 / 498,2:58:18
+3091,        Nathan Schultz      ,        M      ,34,        Minneapolis      ,        MN      ,156 / 7153,135 / 3964,25 / 627,2:58:23
+3259,        Collin Vandussen      ,        M      ,20,        Lakeville      ,        MN      ,157 / 7153,136 / 3964,3 / 177,2:58:24
+3248,        Daniel Lyrek      ,        M      ,31,        St Paul      ,        MN      ,158 / 7153,137 / 3964,26 / 627,2:58:29
+2126,        Erik Larson      ,        M      ,22,        Blaine      ,        MN      ,159 / 7153,138 / 3964,61 / 922,2:58:30
+3046,        Kent Orvik      ,        M      ,38,        Barnesville      ,        MN      ,160 / 7153,139 / 3964,30 / 605,2:58:30
+3802,        Andrew Joda      ,        M      ,32,        Minneapolis      ,        MN      ,161 / 7153,140 / 3964,27 / 627,2:58:32
+3189,        Scott Weispfennig      ,        M      ,33,        St. Paul      ,        MN      ,163 / 7153,141 / 3964,28 / 627,2:58:35
+2479,        Toessawat Suparat      ,        M      ,33,        Saint Louis Park      ,        MN      ,164 / 7153,142 / 3964,29 / 627,2:58:35
+2881,        Rob Walters      ,        M      ,36,        Chicago      ,        IL      ,165 / 7153,143 / 3964,31 / 605,2:58:51
+1806,        Ross Rankin      ,        M      ,34,        Salt Lake City      ,        UT      ,166 / 7153,144 / 3964,30 / 627,2:58:52
+1110,        David Vande Walle      ,        M      ,32,        Madison      ,        WI      ,167 / 7153,145 / 3964,31 / 627,2:58:53
+1883,        Kristofor Enlund      ,        M      ,33,        Richfield      ,        MN      ,168 / 7153,146 / 3964,32 / 627,2:58:55
+1774,        N.Whitney Hyslop      ,        M      ,50,        Minneapolis      ,        MN      ,169 / 7153,147 / 3964,3 / 333,2:58:56
+2250,        Tony Schramm      ,        M      ,28,        New Haven      ,        CT      ,170 / 7153,148 / 3964,62 / 922,2:59:01
+3545,        Mark Sheridan      ,        M      ,26,        Washington      ,        DC      ,171 / 7153,149 / 3964,63 / 922,2:59:09
+2173,        Steven Leonhardt      ,        M      ,30,        Spring City      ,        PA      ,172 / 7153,150 / 3964,33 / 627,2:59:10
+1767,        Jim Bengtson      ,        M      ,51,        Eden Prairie      ,        MN      ,173 / 7153,151 / 3964,4 / 333,2:59:21
+3519,        Julien Boussu      ,        M      ,38,        Kirkland      ,        WA      ,174 / 7153,152 / 3964,32 / 605,2:59:25
+2392,        Patrick Nelson      ,        M      ,33,        Bloomington      ,        MN      ,175 / 7153,153 / 3964,34 / 627,2:59:30
+3446,        Patrick Halbach      ,        M      ,29,        Minneapolis      ,        MN      ,176 / 7153,154 / 3964,64 / 922,2:59:31
+1132,        James Brand      ,        M      ,39,        Minneapolis      ,        MN      ,177 / 7153,155 / 3964,33 / 605,2:59:33
+3572,        Ethan McCallum      ,        M      ,33,        Excelsior      ,        MN      ,179 / 7153,156 / 3964,35 / 627,2:59:38
+3350,        Jarrett Mansergh      ,        M      ,21,        Cottage Grove      ,        MN      ,180 / 7153,157 / 3964,4 / 177,2:59:41
+1477,        Johan Granath      ,        M      ,32,        Gustavsberg      ,              ,181 / 7153,158 / 3964,36 / 627,2:59:48
+3155,        Eric Eickhof      ,        M      ,29,        Minneapolis      ,        MN      ,182 / 7153,159 / 3964,65 / 922,2:59:49
+3177,        Alex Check      ,        M      ,31,        Minneapolis      ,        MN      ,183 / 7153,160 / 3964,37 / 627,2:59:52
+3088,        Benjamin Braaten      ,        M      ,30,        Minneapolis      ,        MN      ,184 / 7153,161 / 3964,38 / 627,2:59:56
+2367,        Jeremy Manstrom      ,        M      ,33,        Grand Forks      ,        ND      ,185 / 7153,162 / 3964,39 / 627,3:00:05
+2761,        Christopher Derosa      ,        M      ,27,        Minneapolis      ,        MN      ,186 / 7153,163 / 3964,66 / 922,3:00:06
+3118,        Christopher Disalvi      ,        M      ,30,"        St. Louis Park, Mn      ",        MN      ,187 / 7153,164 / 3964,40 / 627,3:00:10
+1356,        Scott Zeller      ,        M      ,32,        Raleigh      ,        NC      ,188 / 7153,165 / 3964,41 / 627,3:00:11
+3567,        Tony Schiller      ,        M      ,60,        Eden Prairie      ,        MN      ,189 / 7153,166 / 3964,1 / 127,3:00:15
+2506,        William Guettler      ,        M      ,50,        St. Paul      ,        MN      ,190 / 7153,167 / 3964,5 / 333,3:00:17
+2962,        Cole Cloutier      ,        M      ,27,        Elk Mound      ,        WI      ,191 / 7153,168 / 3964,67 / 922,3:00:24
+3660,        Sam Renikoff      ,        M      ,23,        Minneapolis      ,        MN      ,192 / 7153,169 / 3964,68 / 922,3:00:26
+2718,        Carl Ermisch      ,        M      ,31,        Richfield      ,        MN      ,193 / 7153,170 / 3964,42 / 627,3:00:27
+3587,        Eric Chabin      ,        M      ,51,        Chanhassen      ,        MN      ,195 / 7153,171 / 3964,6 / 333,3:00:37
+3290,        Dane Knettel      ,        M      ,34,        St Paul      ,        MN      ,197 / 7153,172 / 3964,43 / 627,3:00:44
+2940,        Dave Haglin      ,        M      ,37,        Duluth      ,        MN      ,198 / 7153,173 / 3964,34 / 605,3:00:45
+3868,        Steve Koester      ,        M      ,54,        Springfield      ,        IL      ,199 / 7153,174 / 3964,7 / 333,3:00:54
+2080,        Bobby Vigars      ,        M      ,25,        Denver      ,        CO      ,200 / 7153,175 / 3964,69 / 922,3:01:01
+2926,        Ryan Birschbach      ,        M      ,26,        Madison      ,        WI      ,201 / 7153,176 / 3964,70 / 922,3:01:06
+2949,        Peter McGrane      ,        M      ,23,        Minneapolis      ,        MN      ,202 / 7153,177 / 3964,71 / 922,3:01:07
+2997,        Darby Voeks      ,        M      ,23,        Minneapolis      ,        MN      ,203 / 7153,178 / 3964,72 / 922,3:01:07
+3335,        Niko Kubota      ,        M      ,31,        Minneapolis Mn      ,        MN      ,204 / 7153,179 / 3964,44 / 627,3:01:08
+2405,        Matthew Kurtulik      ,        M      ,31,        Cornwall On Hudson      ,        NY      ,205 / 7153,180 / 3964,45 / 627,3:01:18
+1250,        Jadde Rowe      ,        M      ,23,        Maple Grove      ,        MN      ,206 / 7153,181 / 3964,73 / 922,3:01:21
+2534,        Grant Hughes      ,        M      ,54,        Brandon      ,        MB      ,207 / 7153,182 / 3964,8 / 333,3:01:23
+3438,        Patrick Marzolf      ,        M      ,36,        St. Paul      ,        MN      ,209 / 7153,183 / 3964,35 / 605,3:01:28
+3439,        Connor Hammond      ,        M      ,23,        Oakville      ,        ON      ,210 / 7153,184 / 3964,74 / 922,3:01:30
+3019,        Jamie Steidl      ,        M      ,39,        Fargo      ,        ND      ,212 / 7153,185 / 3964,36 / 605,3:01:42
+2238,        Daniel Boody      ,        M      ,34,        Minneapolis      ,        MN      ,213 / 7153,186 / 3964,46 / 627,3:01:45
+1440,        Noah Omdal      ,        M      ,21,        Lakeville      ,        MN      ,214 / 7153,187 / 3964,5 / 177,3:01:51
+3614,        Quinn Dauer      ,        M      ,36,        Louisville      ,        KY      ,215 / 7153,188 / 3964,37 / 605,3:01:57
+1894,        Tim Popp      ,        M      ,39,        Minneapolis      ,        MN      ,216 / 7153,189 / 3964,38 / 605,3:02:02
+1669,        Thomas Sellwood      ,        M      ,30,        St. Paul      ,        MN      ,217 / 7153,190 / 3964,47 / 627,3:02:05
+1371,        Brett Osgood      ,        M      ,41,        Cottage Grove      ,        MN      ,218 / 7153,191 / 3964,13 / 498,3:02:10
+3694,        Andrew Kershaw      ,        M      ,24,        Minneapolis      ,        MN      ,219 / 7153,192 / 3964,75 / 922,3:02:11
+2215,        Nate Marti      ,        M      ,23,        Cedar Rapids      ,        IA      ,220 / 7153,193 / 3964,76 / 922,3:02:15
+3156,        Alex Calof      ,        M      ,30,        Minneapolis      ,        MN      ,221 / 7153,194 / 3964,48 / 627,3:02:22
+3370,        Pete Miller      ,        M      ,49,        Shorewood      ,        MN      ,222 / 7153,195 / 3964,5 / 373,3:02:40
+1257,        Tony Yang      ,        M      ,54,        Maplewood      ,        MN      ,223 / 7153,196 / 3964,9 / 333,3:02:43
+3333,        Jonathan Vinson      ,        M      ,29,        Chaska      ,        MN      ,224 / 7153,197 / 3964,77 / 922,3:02:45
+3170,        Eric Troxell      ,        M      ,45,        Anchorage      ,        AK      ,225 / 7153,198 / 3964,6 / 373,3:02:45
+3053,        Alexander Naughton      ,        M      ,22,        Brooklyn Park      ,        MN      ,226 / 7153,199 / 3964,78 / 922,3:03:03
+2353,        Dan Hoechst      ,        M      ,34,        Mankato      ,        MN      ,227 / 7153,200 / 3964,49 / 627,3:03:06
+3689,        Chris Sovacool      ,        M      ,30,        Sauk Rapids      ,        MN      ,228 / 7153,201 / 3964,50 / 627,3:03:14
+3420,        Matthew Boley      ,        M      ,25,        Minneapolis      ,        MN      ,229 / 7153,202 / 3964,79 / 922,3:03:15
+2000,        Austin Read      ,        M      ,21,        Humboldt      ,        IA      ,230 / 7153,203 / 3964,6 / 177,3:03:16
+3322,        Brandon Radzom      ,        M      ,20,        Madison      ,        WI      ,231 / 7153,204 / 3964,7 / 177,3:03:17
+3271,        Dave Erickson      ,        M      ,34,        Fargo      ,        ND      ,232 / 7153,205 / 3964,51 / 627,3:03:18
+2675,        Noel Naughton      ,        M      ,26,        St. Paul      ,        MN      ,233 / 7153,206 / 3964,80 / 922,3:03:19
+1421,        Isaac Elfon      ,        M      ,44,        M Xico      ,              ,234 / 7153,207 / 3964,14 / 498,3:03:21
+3768,        Michael McGrath      ,        M      ,24,        Chattanooga      ,        TN      ,235 / 7153,208 / 3964,81 / 922,3:03:22
+3152,        Dustin Benson      ,        M      ,42,        Minneapolis      ,        MN      ,236 / 7153,209 / 3964,15 / 498,3:03:24
+2555,        Steven Huppert      ,        M      ,45,        New York      ,        NY      ,237 / 7153,210 / 3964,7 / 373,3:03:25
+1451,        Andrew Caffro      ,        M      ,28,        Pittsburgh      ,        PA      ,238 / 7153,211 / 3964,82 / 922,3:03:29
+2175,        Brandon Kasper      ,        M      ,29,        West Saint Paul      ,        MN      ,239 / 7153,212 / 3964,83 / 922,3:03:35
+2103,        Christopher Demos      ,        M      ,41,        West Allis      ,        WI      ,240 / 7153,213 / 3964,16 / 498,3:03:36
+2401,        Michael Marquardt      ,        M      ,42,        Maple Grove      ,        MN      ,241 / 7153,214 / 3964,17 / 498,3:03:39
+2400,        Chee Ken Yong      ,        M      ,23,        Bloomington      ,        MN      ,242 / 7153,215 / 3964,84 / 922,3:03:40
+3865,        Thomas Allen      ,        M      ,31,        St. Louis Park      ,        MN      ,243 / 7153,216 / 3964,52 / 627,3:03:40
+2931,        Miles Oschwald      ,        M      ,31,        Milwaukee      ,        WI      ,244 / 7153,217 / 3964,53 / 627,3:03:47
+1184,        Corey Cushing      ,        M      ,25,        Minneapolis      ,        MN      ,245 / 7153,218 / 3964,85 / 922,3:03:50
+35,        Dennis Wallach      ,        M      ,61,        Chanhassen      ,        MN      ,246 / 7153,219 / 3964,2 / 127,3:03:52
+3278,        Tim Van Laarhoven      ,        M      ,22,        Highlands Ranch      ,        CO      ,248 / 7153,220 / 3964,86 / 922,3:03:54
+3747,        Martin McKinney      ,        M      ,32,        Fitchburg      ,        WI      ,249 / 7153,221 / 3964,54 / 627,3:03:55
+2518,        Andrew Reyer      ,        M      ,37,        Fredericksburg      ,        VA      ,250 / 7153,222 / 3964,39 / 605,3:03:55
+2107,        Ben Bassett      ,        M      ,41,        Bloomington      ,        MN      ,251 / 7153,223 / 3964,18 / 498,3:03:56
+2927,        Nathan Hoffman      ,        M      ,33,        St. Cloud      ,        MN      ,252 / 7153,224 / 3964,55 / 627,3:03:57
+1866,        Michael Olivier      ,        M      ,36,        Lakeville      ,        MN      ,253 / 7153,225 / 3964,40 / 605,3:04:01
+2169,        Thomas Wilson      ,        M      ,33,        Rogers      ,        MN      ,254 / 7153,226 / 3964,56 / 627,3:04:02
+3466,        David Bea      ,        M      ,39,        Cincinnati      ,        OH      ,255 / 7153,227 / 3964,41 / 605,3:04:05
+3559,        Jesse Nelson      ,        M      ,40,        Minneapolis      ,        MN      ,256 / 7153,228 / 3964,19 / 498,3:04:10
+2197,        Matt Pechacek      ,        M      ,25,        Prescott      ,        WI      ,257 / 7153,229 / 3964,87 / 922,3:04:13
+2334,        Jon Kerzmann      ,        M      ,36,        Maple Grove      ,        MN      ,258 / 7153,230 / 3964,42 / 605,3:04:21
+1656,        Ryan Siewert      ,        M      ,25,        St. Louis Park      ,        MN      ,259 / 7153,231 / 3964,88 / 922,3:04:27
+3821,        Mark Benzel      ,        M      ,35,        Minneapolis      ,        MN      ,261 / 7153,232 / 3964,43 / 605,3:04:32
+2134,        Thomas Cunningham      ,        M      ,23,        Brighton      ,        MA      ,262 / 7153,233 / 3964,89 / 922,3:04:35
+2835,        Ethan Genteman      ,        M      ,28,        St Louis Park      ,        MN      ,263 / 7153,234 / 3964,90 / 922,3:04:41
+1073,        Aaron French      ,        M      ,26,        Alexandria      ,        MN      ,264 / 7153,235 / 3964,91 / 922,3:04:52
+3210,        Todd Gleason      ,        M      ,49,        Raymore      ,        MO      ,265 / 7153,236 / 3964,8 / 373,3:04:59
+2440,        Chris Bakke      ,        M      ,47,        Highlands Ranch      ,        CO      ,266 / 7153,237 / 3964,9 / 373,3:05:00
+3606,        Anthony McLean      ,        M      ,23,        Decorah      ,        IA      ,267 / 7153,238 / 3964,92 / 922,3:05:03
+2600,        Mark Naylor      ,        M      ,35,        Annandale      ,        VA      ,268 / 7153,239 / 3964,44 / 605,3:05:09
+1094,        Omar Awad      ,        M      ,50,        Shoreview      ,        MN      ,269 / 7153,240 / 3964,10 / 333,3:05:11
+2811,        Jonathan Frank      ,        M      ,30,        Minneapolis      ,        MN      ,270 / 7153,241 / 3964,57 / 627,3:05:17
+1731,        Josh Bentley      ,        M      ,22,        Apple Valley      ,        MN      ,271 / 7153,242 / 3964,93 / 922,3:05:24
+3491,        Surendralal Karsanbhai      ,        M      ,49,        Edina      ,        MN      ,272 / 7153,243 / 3964,10 / 373,3:05:25
+2589,        Thomas Albrecht      ,        M      ,34,        Edina      ,        MN      ,273 / 7153,244 / 3964,58 / 627,3:05:25
+2427,        Daniel Mona      ,        M      ,33,        St Louis Park      ,        MN      ,274 / 7153,245 / 3964,59 / 627,3:05:27
+1572,        Trent Saari      ,        M      ,28,        Minneapolis      ,        MN      ,275 / 7153,246 / 3964,94 / 922,3:05:29
+1157,        Andrew Sherman      ,        M      ,39,        Minneapolis      ,        MN      ,276 / 7153,247 / 3964,45 / 605,3:05:31
+2132,        Stephen Rose      ,        M      ,40,        Saint Paul      ,        MN      ,277 / 7153,248 / 3964,20 / 498,3:05:31
+1983,        Joel Stjernholm      ,        M      ,33,        Las Cruces      ,        NM      ,279 / 7153,249 / 3964,60 / 627,3:05:37
+1630,        Peter Manstrom      ,        M      ,32,        Bismarck      ,        ND      ,280 / 7153,250 / 3964,61 / 627,3:05:40
+1582,        Taylor Henning      ,        M      ,39,        Minneapolis      ,        MN      ,281 / 7153,251 / 3964,46 / 605,3:05:43
+1034,        Jarrod Warren      ,        M      ,39,        Independence      ,        MO      ,282 / 7153,252 / 3964,47 / 605,3:05:48
+2409,        Daniel Bakken      ,        M      ,26,        Minneapolis      ,        MN      ,283 / 7153,253 / 3964,95 / 922,3:05:50
+2155,        Ben Phillips      ,        M      ,42,        Canton      ,        IL      ,284 / 7153,254 / 3964,21 / 498,3:05:55
+2104,        Tracy McKinnon      ,        M      ,44,        Irmo      ,        SC      ,285 / 7153,255 / 3964,22 / 498,3:05:58
+3790,        Gregg Turbes      ,        M      ,30,        Milwaukee      ,        WI      ,286 / 7153,256 / 3964,62 / 627,3:05:58
+1831,        Joel Huting      ,        M      ,38,        Minneapolis      ,        MN      ,287 / 7153,257 / 3964,48 / 605,3:06:02
+3667,        Adrian Hanft      ,        M      ,39,        Loveland      ,        CO      ,288 / 7153,258 / 3964,49 / 605,3:06:05
+2190,        Olok Nykew      ,        M      ,43,        Boulder      ,        CO      ,289 / 7153,259 / 3964,23 / 498,3:06:14
+3508,        Nicholas Watson      ,        M      ,35,        Minneapolis      ,        MN      ,290 / 7153,260 / 3964,50 / 605,3:06:17
+1680,        Kevin Johnson      ,        M      ,39,        York      ,        ME      ,291 / 7153,261 / 3964,51 / 605,3:06:19
+2524,        Geoff Burrell      ,        M      ,35,        Denver      ,        CO      ,292 / 7153,262 / 3964,52 / 605,3:06:26
+1040,        Ryan Rinehart      ,        M      ,25,        Woodbury      ,        MN      ,293 / 7153,263 / 3964,96 / 922,3:06:27
+2665,        Matt Swanson      ,        M      ,32,        White Bear Lake      ,        MN      ,294 / 7153,264 / 3964,63 / 627,3:06:29
+3201,        Jesse Sweeney      ,        M      ,44,        Saline      ,        MI      ,296 / 7153,265 / 3964,24 / 498,3:06:34
+1829,        Jon Knutson      ,        M      ,40,        Hopkins      ,        MN      ,297 / 7153,266 / 3964,25 / 498,3:06:34
+3578,        Jun Xu      ,        M      ,40,        Bloomington      ,        MN      ,298 / 7153,267 / 3964,26 / 498,3:06:36
+1465,        Michael Grams      ,        M      ,42,        Rochester      ,        MN      ,299 / 7153,268 / 3964,27 / 498,3:06:39
+2016,        Benedict Foo      ,        M      ,28,        San Diego      ,        CA      ,300 / 7153,269 / 3964,97 / 922,3:06:42
+1013,        Joshua Short      ,        M      ,40,        Roseville      ,        MN      ,301 / 7153,270 / 3964,28 / 498,3:06:43
+10928,        Mark T Lavin      ,        M      ,40,        Sioux Falls      ,        SD      ,302 / 7153,271 / 3964,29 / 498,3:06:44
+2011,        Jacob Ferriero      ,        M      ,23,        Brighton      ,        MA      ,304 / 7153,272 / 3964,98 / 922,3:06:50
+3340,        Samuel Veverka      ,        M      ,26,        Milwaukee      ,        WI      ,305 / 7153,273 / 3964,99 / 922,3:06:50
+3329,        Ryan Kucera      ,        M      ,41,        Columbia Heights      ,        MN      ,306 / 7153,274 / 3964,30 / 498,3:06:53
+2378,        Eric Bakken      ,        M      ,22,        Orono      ,        MN      ,307 / 7153,275 / 3964,100 / 922,3:06:57
+2307,        Gavin Hetletvd      ,        M      ,33,        Washburn      ,        ND      ,308 / 7153,276 / 3964,64 / 627,3:07:00
+3188,        Cameron Berg      ,        M      ,35,        Golden Valley      ,        MN      ,309 / 7153,277 / 3964,53 / 605,3:07:04
+3585,        Jeremy Blake      ,        M      ,40,        Blaine      ,        MN      ,310 / 7153,278 / 3964,31 / 498,3:07:06
+2723,        Brady Feiring      ,        M      ,28,        Bismarck      ,        ND      ,313 / 7153,279 / 3964,101 / 922,3:07:22
+2194,        Adam Short      ,        M      ,41,        Cary      ,        NC      ,314 / 7153,280 / 3964,32 / 498,3:07:22
+1988,        Matthew Forys      ,        M      ,36,        Saint Paul      ,        MN      ,315 / 7153,281 / 3964,54 / 605,3:07:24
+3054,        Timothy Vedder      ,        M      ,39,        Minneapolis      ,        MN      ,317 / 7153,282 / 3964,55 / 605,3:07:29
+1334,        Pete Sawyer      ,        M      ,38,        Plymouth      ,        MN      ,320 / 7153,283 / 3964,56 / 605,3:07:45
+2186,        Matthew Johannsen      ,        M      ,31,        Minneapolis      ,        MN      ,321 / 7153,284 / 3964,65 / 627,3:07:48
+1400,        Jacob Miller      ,        M      ,25,        Minneapolis      ,        MN      ,322 / 7153,285 / 3964,102 / 922,3:07:48
+3358,        Dennis Albaugh      ,        M      ,44,        Fort Carson      ,        CO      ,323 / 7153,286 / 3964,33 / 498,3:07:49
+3788,        Scott Hansen      ,        M      ,49,        Woodbury      ,        MN      ,324 / 7153,287 / 3964,11 / 373,3:07:54
+3391,        Edward Blankenship      ,        M      ,53,        Naples      ,        FL      ,325 / 7153,288 / 3964,11 / 333,3:08:06
+3211,        Mitch Nass      ,        M      ,31,        Des Moines      ,        IA      ,326 / 7153,289 / 3964,66 / 627,3:08:08
+3672,        Matthew Abroe      ,        M      ,43,        Edina      ,        MN      ,327 / 7153,290 / 3964,34 / 498,3:08:13
+1891,        Christopher Montgomery      ,        M      ,40,        Wilmington      ,        MA      ,328 / 7153,291 / 3964,35 / 498,3:08:14
+1181,        Mike Brown      ,        M      ,46,        Edmond      ,        OK      ,329 / 7153,292 / 3964,12 / 373,3:08:27
+3816,        Andy Hoenisch      ,        M      ,41,        St. Paul      ,        MN      ,330 / 7153,293 / 3964,36 / 498,3:08:29
+3536,        Bobby Klemmer      ,        M      ,41,        South Lyon      ,        MI      ,331 / 7153,294 / 3964,37 / 498,3:08:29
+2877,        Jeff Burnett      ,        M      ,37,        Coon Rapids      ,        MN      ,332 / 7153,295 / 3964,57 / 605,3:08:32
+2939,        Yuhei Inoue      ,        M      ,35,        Minneapolis      ,        MN      ,333 / 7153,296 / 3964,58 / 605,3:08:34
+2082,        Josh Kielsmeier-Cook      ,        M      ,34,        Minneapolis      ,        MN      ,334 / 7153,297 / 3964,67 / 627,3:08:40
+2010,        Evan Hershman      ,        M      ,26,        New York      ,        NY      ,336 / 7153,298 / 3964,103 / 922,3:08:41
+2890,        Alex Hennen      ,        M      ,30,        Minneapolis      ,        MN      ,337 / 7153,299 / 3964,68 / 627,3:08:44
+2045,        Yueh-En Chen      ,        M      ,32,        San Francisco      ,        CA      ,338 / 7153,300 / 3964,69 / 627,3:08:44
+3649,        Nate Custard      ,        M      ,35,        South St.Paul      ,        MN      ,339 / 7153,301 / 3964,59 / 605,3:08:45
+46,        Joseph Haynes      ,        M      ,64,        Ames      ,        IA      ,340 / 7153,302 / 3964,3 / 127,3:08:47
+3364,        Marc Marentette      ,        M      ,51,        Stoney Point      ,        ON      ,341 / 7153,303 / 3964,12 / 333,3:08:49
+3864,        Jason Razo      ,        M      ,34,        St Paul      ,        MN      ,342 / 7153,304 / 3964,70 / 627,3:08:49
+3644,        Steven Van Alstine      ,        M      ,51,        Mississauga      ,        ON      ,343 / 7153,305 / 3964,13 / 333,3:08:51
+2585,        Sam Himes      ,        M      ,18,        Plymouth      ,        MN      ,347 / 7153,306 / 3964,8 / 177,3:09:08
+3175,        Craig Albers      ,        M      ,26,        Indianola      ,        IA      ,348 / 7153,307 / 3964,104 / 922,3:09:08
+1046,        Lance Kuehn      ,        M      ,35,        Eagan      ,        MN      ,349 / 7153,308 / 3964,60 / 605,3:09:18
+2911,        Josh Berg      ,        M      ,24,        Minneapolis      ,        MN      ,350 / 7153,309 / 3964,105 / 922,3:09:20
+3680,        Brian Stone      ,        M      ,36,        Brookhaven      ,        GA      ,351 / 7153,310 / 3964,61 / 605,3:09:24
+3569,        Christopher Gerlach      ,        M      ,49,        Woodbury      ,        MN      ,352 / 7153,311 / 3964,13 / 373,3:09:25
+2794,        Steve Munson      ,        M      ,41,        Roseville      ,        MN      ,353 / 7153,312 / 3964,38 / 498,3:09:30
+2179,        Max Morice      ,        M      ,25,        Stillwater      ,        MN      ,354 / 7153,313 / 3964,106 / 922,3:09:43
+3629,        Josh Aaseng      ,        M      ,35,        Seattle      ,        WA      ,355 / 7153,314 / 3964,62 / 605,3:09:43
+2557,        Gerry Marsh      ,        M      ,40,        Wichita      ,        KS      ,356 / 7153,315 / 3964,39 / 498,3:09:51
+3157,        Aaron Shaffer      ,        M      ,34,        Minneapolis      ,        MN      ,357 / 7153,316 / 3964,71 / 627,3:10:06
+2150,        Brian Olsen      ,        M      ,57,        Jackson      ,        MI      ,358 / 7153,317 / 3964,2 / 214,3:10:08
+3342,        Charles Cannon      ,        M      ,38,        Minneapolis      ,        MN      ,359 / 7153,318 / 3964,63 / 605,3:10:09
+2914,        Brent Esterberg      ,        M      ,44,        Saint Joseph      ,        MN      ,360 / 7153,319 / 3964,40 / 498,3:10:15
+3069,        Bryan Marks      ,        M      ,44,        Saint Croix Falls      ,        WI      ,361 / 7153,320 / 3964,41 / 498,3:10:16
+3353,        Aaron Berndt      ,        M      ,38,        Plymouth      ,        MN      ,362 / 7153,321 / 3964,64 / 605,3:10:16
+1840,        Tony Dockendorff      ,        M      ,28,        La Crosse      ,        WI      ,363 / 7153,322 / 3964,107 / 922,3:10:17
+1276,        Peter Mack      ,        M      ,38,        Duluth      ,        MN      ,364 / 7153,323 / 3964,65 / 605,3:10:19
+2729,        Connor Tedstrom      ,        M      ,26,        Saint Louis Park      ,        MN      ,365 / 7153,324 / 3964,108 / 922,3:10:26
+2625,        Alemo Akway      ,        M      ,31,        Rosemount      ,        MN      ,367 / 7153,325 / 3964,72 / 627,3:10:47
+2062,        Kyle Monroe      ,        M      ,34,        Hannibal      ,        MO      ,368 / 7153,326 / 3964,73 / 627,3:10:59
+3133,        Nathan Smith      ,        M      ,21,        West Hills      ,        CA      ,369 / 7153,327 / 3964,9 / 177,3:11:01
+1242,        Patrick Delahunt      ,        M      ,29,        Cambridge      ,        MA      ,371 / 7153,328 / 3964,109 / 922,3:11:10
+3806,        Andrew Gillespie      ,        M      ,38,        Minneapolis      ,        MN      ,372 / 7153,329 / 3964,66 / 605,3:11:11
+1949,        Wayne Brown      ,        M      ,37,        Madison      ,        MS      ,373 / 7153,330 / 3964,67 / 605,3:11:15
+2844,        Declan Curley      ,        M      ,47,        Minnetonka      ,        MN      ,374 / 7153,331 / 3964,14 / 373,3:11:15
+2773,        Matt Sima      ,        M      ,30,        Ely      ,        IA      ,376 / 7153,332 / 3964,74 / 627,3:11:36
+1720,        John Rollie      ,        M      ,48,        Eagan      ,        MN      ,378 / 7153,333 / 3964,15 / 373,3:11:43
+3582,        Jacob Sirek      ,        M      ,34,        Minneapolis      ,        MN      ,379 / 7153,334 / 3964,75 / 627,3:11:47
+2806,        Paul Martin      ,        M      ,58,        Wausau      ,        WI      ,380 / 7153,335 / 3964,3 / 214,3:11:52
+1468,        Nick Morrison      ,        M      ,31,        Superior      ,        CO      ,381 / 7153,336 / 3964,76 / 627,3:11:52
+2267,        Kenneth Ebener      ,        M      ,48,        West Columbia      ,        SC      ,382 / 7153,337 / 3964,16 / 373,3:11:56
+1691,        Alexander Locke      ,        M      ,32,        Chicago      ,        IL      ,383 / 7153,338 / 3964,77 / 627,3:11:56
+1532,        Christipher Brozynski      ,        M      ,40,        Apple Valley      ,        MN      ,385 / 7153,339 / 3964,42 / 498,3:12:02
+3671,        Tom Lee      ,        M      ,39,        Maple Grove      ,        MN      ,386 / 7153,340 / 3964,68 / 605,3:12:03
+3777,        Justin Meier      ,        M      ,29,        Eagle River      ,        WI      ,388 / 7153,341 / 3964,110 / 922,3:12:07
+2658,        Tyler Trettel      ,        M      ,30,        Sauk Rapids      ,        MN      ,389 / 7153,342 / 3964,78 / 627,3:12:09
+1111,        Tim Howe      ,        M      ,45,        Minnetonka      ,        MN      ,390 / 7153,343 / 3964,17 / 373,3:12:09
+1787,        David Neuburger      ,        M      ,27,        Long Island City      ,        NY      ,391 / 7153,344 / 3964,111 / 922,3:12:10
+1754,        Sergio Castro      ,        M      ,40,        Minneapolis      ,        MN      ,392 / 7153,345 / 3964,43 / 498,3:12:15
+3441,        Elliot Helmbrecht      ,        M      ,32,        Seattle      ,        WA      ,394 / 7153,346 / 3964,79 / 627,3:12:18
+3827,        George Mutuma      ,        M      ,43,        Minneapolis      ,        MN      ,396 / 7153,347 / 3964,44 / 498,3:12:28
+3594,        Kelly Orourke      ,        M      ,44,        Albertville      ,        MN      ,397 / 7153,348 / 3964,45 / 498,3:12:30
+2213,        Chris Schroeder      ,        M      ,42,        Steinbach      ,        MB      ,398 / 7153,349 / 3964,46 / 498,3:12:30
+3395,        Pj Mack      ,        M      ,32,        Minneapolis      ,        MN      ,399 / 7153,350 / 3964,80 / 627,3:12:37
+1239,        Parker Johnson      ,        M      ,24,        Wayzata      ,        MN      ,401 / 7153,351 / 3964,112 / 922,3:12:39
+1653,        John Storkamp      ,        M      ,38,        Hastings      ,        MN      ,402 / 7153,352 / 3964,69 / 605,3:12:41
+1618,        Paul Christian      ,        M      ,52,        Linn Grove      ,        IA      ,403 / 7153,353 / 3964,14 / 333,3:12:44
+2192,        Eric Chen      ,        M      ,30,        Minneapolis      ,        MN      ,404 / 7153,354 / 3964,81 / 627,3:12:48
+1557,        Wade Neiwert      ,        M      ,42,        Shoreview      ,        MN      ,405 / 7153,355 / 3964,47 / 498,3:12:50
+1244,        Andrew Thomas      ,        M      ,30,        Boston      ,        MA      ,406 / 7153,356 / 3964,82 / 627,3:12:51
+2990,        Karl Pohlmann      ,        M      ,57,        Henderson      ,        NV      ,407 / 7153,357 / 3964,4 / 214,3:12:52
+2559,        Craig Pijanowski      ,        M      ,49,        Roeland Park      ,        KS      ,408 / 7153,358 / 3964,18 / 373,3:12:53
+1043,        Fabio Vannucci      ,        M      ,36,        Falcon Heights      ,        MN      ,409 / 7153,359 / 3964,70 / 605,3:12:54
+2389,        D.J. Chatelaine      ,        M      ,23,        Owatonna      ,        MN      ,410 / 7153,360 / 3964,113 / 922,3:13:05
+2526,        Scott Fox      ,        M      ,35,        Minneapolis      ,        MN      ,412 / 7153,361 / 3964,71 / 605,3:13:16
+3413,        Andrew Osmond      ,        M      ,45,        Madison      ,        WI      ,414 / 7153,362 / 3964,19 / 373,3:13:29
+1695,        Aaron Nissen      ,        M      ,24,        Tenstrike      ,        MN      ,415 / 7153,363 / 3964,114 / 922,3:13:32
+1445,        Jared Brimberry      ,        M      ,28,        Juneau      ,        AK      ,416 / 7153,364 / 3964,115 / 922,3:13:33
+1179,        Brian Krueger      ,        M      ,30,        Minneapolis      ,        MN      ,417 / 7153,365 / 3964,83 / 627,3:13:33
+1511,        Ryan Kistner      ,        M      ,39,        Eagan      ,        MN      ,418 / 7153,366 / 3964,72 / 605,3:13:34
+3263,        Eric Barten      ,        M      ,34,        Tigard      ,        OR      ,419 / 7153,367 / 3964,84 / 627,3:13:35
+3257,        Ryan Buron      ,        M      ,23,        Saint Paul      ,        MN      ,420 / 7153,368 / 3964,116 / 922,3:13:38
+1262,        John Grimes      ,        M      ,34,        Minneapolis      ,        MN      ,421 / 7153,369 / 3964,85 / 627,3:13:40
+1323,        Phil Wacker      ,        M      ,34,        St Paul      ,        MN      ,422 / 7153,370 / 3964,86 / 627,3:13:41
+3634,        Peter Moeschler      ,        M      ,39,        Rochester      ,        MN      ,423 / 7153,371 / 3964,73 / 605,3:13:43
+1261,        Javier Quito      ,        M      ,40,        Minneapolis      ,        MN      ,425 / 7153,372 / 3964,48 / 498,3:13:43
+3761,        Jackson McElroy      ,        M      ,21,        Olathe      ,        KS      ,426 / 7153,373 / 3964,10 / 177,3:13:45
+1243,        Michael Stone      ,        M      ,50,        Minnetonka      ,        MN      ,427 / 7153,374 / 3964,15 / 333,3:13:47
+2846,        Kelcey Knott      ,        M      ,44,        Saint Paul      ,        MN      ,428 / 7153,375 / 3964,49 / 498,3:13:47
+2226,        Travis Husen      ,        M      ,31,        West Fargo      ,        ND      ,429 / 7153,376 / 3964,87 / 627,3:13:50
+2420,        Karl Wiederwohl      ,        M      ,40,        Saint Paul      ,        MN      ,431 / 7153,377 / 3964,50 / 498,3:13:53
+1512,        John Thomson      ,        M      ,33,        Boulder      ,        CO      ,432 / 7153,378 / 3964,88 / 627,3:13:53
+1145,        Richard Zarnoch      ,        M      ,26,        Minneapolis      ,        MN      ,434 / 7153,379 / 3964,117 / 922,3:14:04
+3657,        Ethan Fischer      ,        M      ,18,        Medina      ,        MN      ,435 / 7153,380 / 3964,11 / 177,3:14:04
+2395,        Corey Johnson      ,        M      ,30,        Baltimore      ,        MD      ,436 / 7153,381 / 3964,89 / 627,3:14:07
+2791,        Grant Collins      ,        M      ,35,        Minneapolis      ,        MN      ,437 / 7153,382 / 3964,74 / 605,3:14:10
+2076,        Brian Welu      ,        M      ,23,        Brighton      ,        MA      ,438 / 7153,383 / 3964,118 / 922,3:14:10
+1737,        Erik Larsen      ,        M      ,25,        Minneapolis      ,        MN      ,439 / 7153,384 / 3964,119 / 922,3:14:16
+2337,        Ryan Rogers      ,        M      ,27,        Boston      ,        MA      ,441 / 7153,385 / 3964,120 / 922,3:14:24
+2742,        Austin Hopkins      ,        M      ,28,        Boise      ,        ID      ,442 / 7153,386 / 3964,121 / 922,3:14:24
+3869,        Todd Stabenow      ,        M      ,44,        Minneapolis      ,        MN      ,447 / 7153,387 / 3964,51 / 498,3:14:31
+1112,        Ben Kruger      ,        M      ,41,        Victoria      ,        MN      ,448 / 7153,388 / 3964,52 / 498,3:14:32
+3677,        Mark Thuot      ,        M      ,48,        Hatley      ,        WI      ,449 / 7153,389 / 3964,20 / 373,3:14:37
+3541,        Alex Rover      ,        M      ,25,        Minneapolis      ,        MN      ,450 / 7153,390 / 3964,122 / 922,3:14:41
+3380,        Eric Flyen      ,        M      ,42,        Lake Park      ,        MN      ,452 / 7153,391 / 3964,53 / 498,3:14:41
+2727,        Erik Kaitala      ,        M      ,46,        Knife River      ,        MN      ,453 / 7153,392 / 3964,21 / 373,3:14:42
+2705,        Brett Noecker      ,        M      ,28,        Minneapolis      ,        MN      ,454 / 7153,393 / 3964,123 / 922,3:14:46
+3459,        Nicholas Hanson      ,        M      ,36,        Kalamazoo      ,        MI      ,455 / 7153,394 / 3964,75 / 605,3:14:46
+3030,        Josh Jordan      ,        M      ,31,        Madison      ,        WI      ,456 / 7153,395 / 3964,90 / 627,3:14:46
+1923,        Eric Rafko      ,        M      ,38,        Eau Claire      ,        WI      ,457 / 7153,396 / 3964,76 / 605,3:14:47
+3409,        Mark Wulff      ,        M      ,36,        Asheville      ,        NC      ,458 / 7153,397 / 3964,77 / 605,3:14:48
+2611,        Brooks Hitt      ,        M      ,42,        Lincoln      ,        NE      ,459 / 7153,398 / 3964,54 / 498,3:14:52
+3593,        Christian Marboe      ,        M      ,30,        Copenhagen      ,              ,460 / 7153,399 / 3964,91 / 627,3:14:55
+3090,        Colin Woelfle      ,        M      ,39,        Robbinsdale      ,        MN      ,462 / 7153,400 / 3964,78 / 605,3:15:01
+3850,        Travis McCathie      ,        M      ,37,        Richfiled      ,        MN      ,463 / 7153,401 / 3964,79 / 605,3:15:09
+1307,        Andrew McNattin      ,        M      ,39,        St Paul      ,        MN      ,464 / 7153,402 / 3964,80 / 605,3:15:16
+2703,        Rick Nguyen      ,        M      ,46,        Richardson      ,        TX      ,465 / 7153,403 / 3964,22 / 373,3:15:18
+2951,        James Winkels      ,        M      ,47,        Waconia      ,        MN      ,467 / 7153,404 / 3964,23 / 373,3:15:20
+3033,        James Nichols      ,        M      ,39,        Minneapolis      ,        MN      ,468 / 7153,405 / 3964,81 / 605,3:15:27
+1097,        Jeffrey Krull      ,        M      ,45,        Carver      ,        MN      ,469 / 7153,406 / 3964,24 / 373,3:15:28
+3100,        Andrew Albertson      ,        M      ,39,        Shawnee      ,        KS      ,470 / 7153,407 / 3964,82 / 605,3:15:28
+1270,        Corey Carlson      ,        M      ,34,        Golden      ,        CO      ,471 / 7153,408 / 3964,92 / 627,3:15:28
+3785,        Chad Fuenffinger      ,        M      ,38,        Roseville      ,        MN      ,472 / 7153,409 / 3964,83 / 605,3:15:29
+3412,        Matthew Brennan      ,        M      ,28,        Jacksonville      ,        FL      ,473 / 7153,410 / 3964,124 / 922,3:15:32
+3769,        Nathan Cartwright      ,        M      ,40,        Minnetrista      ,        MN      ,474 / 7153,411 / 3964,55 / 498,3:15:33
+2371,        Michael Mitchell      ,        M      ,35,        Eagan      ,        MN      ,475 / 7153,412 / 3964,84 / 605,3:15:38
+3423,        Paul Gorton      ,        M      ,42,        Saint Paul      ,        MN      ,476 / 7153,413 / 3964,56 / 498,3:15:38
+2757,        Christopher Walls      ,        M      ,40,        Fort Worth      ,        TX      ,478 / 7153,414 / 3964,57 / 498,3:15:57
+1773,        Randall Smith      ,        M      ,43,        Maplewood      ,        MN      ,479 / 7153,415 / 3964,58 / 498,3:15:57
+3853,        Matthew Peterson      ,        M      ,35,        Maple Grove      ,        MN      ,480 / 7153,416 / 3964,85 / 605,3:15:58
+3032,        Joseph Makonnen      ,        M      ,45,        Oakland      ,        CA      ,481 / 7153,417 / 3964,25 / 373,3:15:58
+3299,        Frank Campbell      ,        M      ,54,        Tucson      ,        AZ      ,482 / 7153,418 / 3964,16 / 333,3:16:05
+3315,        Patrick Cron      ,        M      ,27,        Plymouth      ,        MN      ,483 / 7153,419 / 3964,125 / 922,3:16:05
+1287,        Dennis Deloye      ,        M      ,40,        Forest Lake      ,        MN      ,484 / 7153,420 / 3964,59 / 498,3:16:15
+2852,        Daniel Roellinger      ,        M      ,38,        Rochester      ,        MN      ,485 / 7153,421 / 3964,86 / 605,3:16:22
+2234,        Ben Hertz      ,        M      ,20,        Cedar Falls      ,        IA      ,486 / 7153,422 / 3964,12 / 177,3:16:25
+2630,        Max Palmer      ,        M      ,21,        West Des Moines      ,        IA      ,488 / 7153,423 / 3964,13 / 177,3:16:35
+2639,        Alexis Mazariegos      ,        M      ,41,        Guatemala      ,        IL      ,489 / 7153,424 / 3964,60 / 498,3:16:35
+2602,        Andrew Wier      ,        M      ,28,        Minneapolis      ,        MN      ,490 / 7153,425 / 3964,126 / 922,3:16:44
+2826,        Chet Jurrens      ,        M      ,19,        Otsego      ,        MN      ,491 / 7153,426 / 3964,14 / 177,3:16:47
+2249,        Michael Brown      ,        M      ,21,        Shoreview      ,        MN      ,492 / 7153,427 / 3964,15 / 177,3:16:51
+3310,        Nicholas James      ,        M      ,32,        Eden Prairie      ,        MN      ,493 / 7153,428 / 3964,93 / 627,3:16:52
+2765,        Colby Shores      ,        M      ,43,        Penfield      ,        NY      ,494 / 7153,429 / 3964,61 / 498,3:16:53
+1099,        Bradley Sipley      ,        M      ,33,        Minneapolis      ,        MN      ,495 / 7153,430 / 3964,94 / 627,3:16:54
+1855,        Benjamin Lazarus      ,        M      ,43,        Edina      ,        MN      ,496 / 7153,431 / 3964,62 / 498,3:16:54
+1916,        Logan Danielson      ,        M      ,20,        Woodbury      ,        MN      ,497 / 7153,432 / 3964,16 / 177,3:16:55
+3399,        Matthew Hallman      ,        M      ,42,        Mercer Island      ,        WA      ,498 / 7153,433 / 3964,63 / 498,3:16:55
+3376,        Kyle Snyder      ,        M      ,41,        Stillwater      ,        MN      ,499 / 7153,434 / 3964,64 / 498,3:16:56
+2306,        Bryan Dixon      ,        M      ,35,        Otsego      ,        MN      ,500 / 7153,435 / 3964,87 / 605,3:16:57
+2770,        Cary Guffey      ,        M      ,46,        Birmingham      ,        AL      ,502 / 7153,436 / 3964,26 / 373,3:16:59
+1383,        Joachim Brennsteiner      ,        M      ,40,        New York      ,        NY      ,503 / 7153,437 / 3964,65 / 498,3:16:59
+3059,        Mark Riebe      ,        M      ,49,        Maplewood      ,        MN      ,504 / 7153,438 / 3964,27 / 373,3:17:01
+3872,        Stanley Leleito      ,        M      ,34,        Plymouth      ,        MN      ,505 / 7153,439 / 3964,95 / 627,3:17:01
+1272,        Bradley Homan      ,        M      ,35,        Jersey City      ,        NJ      ,506 / 7153,440 / 3964,88 / 605,3:17:04
+3122,        David Keller      ,        M      ,21,        Minneapolis      ,        MN      ,507 / 7153,441 / 3964,17 / 177,3:17:06
+3026,        Christopher Bisping      ,        M      ,27,        Virginia      ,        MN      ,508 / 7153,442 / 3964,127 / 922,3:17:08
+2963,        Brad Mitchell      ,        M      ,34,        Lakeville      ,        MN      ,509 / 7153,443 / 3964,96 / 627,3:17:08
+2090,        Henry Underhill      ,        M      ,20,        Bolingbrook      ,        IL      ,510 / 7153,444 / 3964,18 / 177,3:17:10
+1066,        Ryan Nevin      ,        M      ,36,        Waterloo      ,        IA      ,512 / 7153,445 / 3964,89 / 605,3:17:14
+3851,        Michael Rozin      ,        M      ,38,        Minneapolis      ,        MN      ,513 / 7153,446 / 3964,90 / 605,3:17:15
+2886,        Peter Brandt      ,        M      ,32,        Houston      ,        TX      ,515 / 7153,447 / 3964,97 / 627,3:17:26
+1889,        Andrew Selseth      ,        M      ,28,        Eau Claire      ,        WI      ,516 / 7153,448 / 3964,128 / 922,3:17:27
+3796,        Alex Webster      ,        M      ,26,        Shakopee      ,        MN      ,517 / 7153,449 / 3964,129 / 922,3:17:28
+1300,        Kurt Vogel      ,        M      ,48,        Middleton      ,        WI      ,519 / 7153,450 / 3964,28 / 373,3:17:31
+3608,        Philip Wood      ,        M      ,38,        Madison      ,        WI      ,520 / 7153,451 / 3964,91 / 605,3:17:32
+2212,        Egor Malkov      ,        M      ,27,        Minneapolis      ,        MN      ,521 / 7153,452 / 3964,130 / 922,3:17:34
+1498,        Conrado Soria      ,        M      ,39,        Arlington      ,        VA      ,524 / 7153,453 / 3964,92 / 605,3:17:38
+1624,        Daniel Baron      ,        M      ,52,        Edina      ,        MN      ,525 / 7153,454 / 3964,17 / 333,3:17:40
+3830,        Eric Woodford      ,        M      ,45,        Rochester      ,        MN      ,526 / 7153,455 / 3964,29 / 373,3:17:41
+2955,        Andrew Haefner      ,        M      ,27,        Duluth      ,        MN      ,528 / 7153,456 / 3964,131 / 922,3:17:43
+3256,        Farzin Farajzadeh      ,        M      ,41,        Newport Beach      ,        CA      ,529 / 7153,457 / 3964,66 / 498,3:17:44
+1547,        John Sluder      ,        M      ,26,        Washington      ,        DC      ,530 / 7153,458 / 3964,132 / 922,3:17:45
+2332,        Samuel Mekonnen      ,        M      ,34,        Inver Grove Height      ,        MN      ,531 / 7153,459 / 3964,98 / 627,3:17:46
+2091,        Kyle Mente      ,        M      ,37,        Dewitt      ,        IA      ,532 / 7153,460 / 3964,93 / 605,3:17:53
+3568,        Jim Trost      ,        M      ,34,        Inver Grove Height      ,        MN      ,533 / 7153,461 / 3964,99 / 627,3:17:56
+1828,        Liam Cahill      ,        M      ,37,        Maplewood      ,        NJ      ,534 / 7153,462 / 3964,94 / 605,3:17:58
+3527,        Christopher Flannery      ,        M      ,53,        St. Paul      ,        MN      ,535 / 7153,463 / 3964,18 / 333,3:18:02
+2660,        Brian Lukkasson      ,        M      ,38,        Minneapolis      ,        MN      ,536 / 7153,464 / 3964,95 / 605,3:18:02
+2800,        Jeremy Seeman      ,        M      ,31,        Mounds View      ,        MN      ,539 / 7153,465 / 3964,100 / 627,3:18:12
+2017,        Thomas Horner      ,        M      ,29,        Rochester      ,        MN      ,540 / 7153,466 / 3964,133 / 922,3:18:12
+2711,        Levi Stegner      ,        M      ,19,        Amidon      ,        ND      ,541 / 7153,467 / 3964,19 / 177,3:18:13
+3602,        Mark Pankow      ,        M      ,46,        Marengo      ,        IL      ,543 / 7153,468 / 3964,30 / 373,3:18:17
+2383,        Brian Dahl      ,        M      ,31,        La Crosse      ,        WI      ,544 / 7153,469 / 3964,101 / 627,3:18:17
+1284,        Eric Williams      ,        M      ,45,        Henderson      ,        NV      ,545 / 7153,470 / 3964,31 / 373,3:18:17
+3650,        Douglas Nyabioge      ,        M      ,24,        Edina      ,        MN      ,546 / 7153,471 / 3964,134 / 922,3:18:19
+1288,        Michael Bester      ,        M      ,37,        Roseville      ,        MN      ,547 / 7153,472 / 3964,96 / 605,3:18:22
+1941,        Stephen Bartos      ,        M      ,47,        Eagan      ,        MN      ,548 / 7153,473 / 3964,32 / 373,3:18:23
+3440,        Evan Droen      ,        M      ,25,        St. Louis Park      ,        MN      ,551 / 7153,474 / 3964,135 / 922,3:18:28
+2265,        Jacob Haapala      ,        M      ,32,        Minneapolis      ,        MN      ,552 / 7153,475 / 3964,102 / 627,3:18:28
+3282,        Peter Malakhov      ,        M      ,50,        Toronto      ,        ON      ,554 / 7153,476 / 3964,19 / 333,3:18:32
+3876,        Jason Phillippi      ,        M      ,32,        New Hope      ,        MN      ,557 / 7153,477 / 3964,103 / 627,3:18:51
+2455,        Peder Hopkins      ,        M      ,24,        Minneapolis      ,        MN      ,558 / 7153,478 / 3964,136 / 922,3:18:54
+3604,        Serge Mfiki      ,        M      ,40,        Saint Paul      ,        MN      ,559 / 7153,479 / 3964,67 / 498,3:18:59
+3824,        Cameron Wing      ,        M      ,27,        Saint Paul      ,        MN      ,560 / 7153,480 / 3964,137 / 922,3:19:04
+1197,        Jj Kuhn      ,        M      ,44,        Edina      ,        MN      ,561 / 7153,481 / 3964,68 / 498,3:19:08
+1863,        Brandon Heebink      ,        M      ,34,        Maple Grove      ,        MN      ,562 / 7153,482 / 3964,104 / 627,3:19:14
+2406,        Mark Schwartz      ,        M      ,41,        Faribault      ,        MN      ,563 / 7153,483 / 3964,69 / 498,3:19:15
+3065,        Ethan Beiler      ,        M      ,33,        Fort Worth      ,        TX      ,564 / 7153,484 / 3964,105 / 627,3:19:19
+3581,        Minsok Pak      ,        M      ,49,        Minneapolis      ,        MN      ,565 / 7153,485 / 3964,33 / 373,3:19:21
+2237,        Eric Otto      ,        M      ,32,        Lester Prairie      ,        MN      ,566 / 7153,486 / 3964,106 / 627,3:19:22
+3312,        R Paul Boesch      ,        M      ,44,        Rochester      ,        MN      ,567 / 7153,487 / 3964,70 / 498,3:19:25
+3699,        Samuel Sokolsky      ,        M      ,23,        Minneapolis      ,        MN      ,568 / 7153,488 / 3964,138 / 922,3:19:29
+3036,        Sean Radebaugh      ,        M      ,21,        Winona      ,        MN      ,569 / 7153,489 / 3964,20 / 177,3:19:30
+3255,        Scott Shinneman      ,        M      ,40,        Seattle      ,        WA      ,571 / 7153,490 / 3964,71 / 498,3:19:33
+1717,        David Tompkins      ,        M      ,47,        Minneapolis      ,        MN      ,572 / 7153,491 / 3964,34 / 373,3:19:33
+2381,        Anibal Davila      ,        M      ,47,        Chaska      ,        MN      ,573 / 7153,492 / 3964,35 / 373,3:19:37
+3404,        Luke Schlee      ,        M      ,28,        Grand Meadow      ,        MN      ,574 / 7153,493 / 3964,139 / 922,3:19:40
+2157,        Mike Cuccia      ,        M      ,47,        Chanhassen      ,        MN      ,575 / 7153,494 / 3964,36 / 373,3:19:41
+3757,        Samuel Gullickson      ,        M      ,26,        Saint Paul      ,        MN      ,577 / 7153,495 / 3964,140 / 922,3:19:55
+2229,        James Botnen      ,        M      ,31,        Kindred      ,        ND      ,578 / 7153,496 / 3964,107 / 627,3:19:58
+1675,        Will Claridge      ,        M      ,19,        Eden Prairie      ,        MN      ,580 / 7153,497 / 3964,21 / 177,3:20:01
+2293,        Joseph Hazelton      ,        M      ,21,        Arlington      ,        MA      ,581 / 7153,498 / 3964,22 / 177,3:20:02
+2492,        Bradon Dreyer      ,        M      ,38,        Saint Paul      ,        MN      ,582 / 7153,499 / 3964,97 / 605,3:20:02
+4246,        Edwin Cholula      ,        M      ,26,        South Plainfield      ,        NJ      ,583 / 7153,500 / 3964,141 / 922,3:20:07

@@ -1,0 +1,40 @@
+---
+title: "830 Semester Project"
+author: "Andy Beck"
+date: "December 17, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tidyverse)
+library(broom)
+
+df1 <- read_tsv("data/marathon_wide.tsv")
+boston2015 <- read_csv("data/boston/2015.csv") 
+```
+
+## Abstract
+
+## Introduction
+
+Marathons, races that are 26.2 miles (~42.2km) in length, have seen their popularity in the United States grow in the recent past, peaking in 2014 where an estimated 550,600 runners completed a marathon in the United States [CITE ME]. Goals for these runners can vary from wanting to compete for a victory to just wanting to finish, but in general annecdotal evidence seems to suggest that at least those who run more than one seek to improve upon previous performances. Previous scientific study of marathon runners focused more rigorously on understanding how nutrition [CITE ME], running mechanics [CITE ME] and energy cost over the course of a marathon impact race performance. Little work has been published that evaluates pacing strategy, with most of these articles concluding that steady pacing over the race yields better results than changing pace over the race [CITATIONS]. Even less work has been done to evaluate differences in pace strategy across age, gender, different courses, and ability level.
+
+Here in this report, I attempt to quantify how pace profiles differ across these factors. In my first analysis, I incorrectly apply GEE to a dataset containing the half split and full marathon time from 37,250 runners from an anonymized dataset that I found on github. I then use a more appropriate linear regression model and argue that a more robust method like iteratively re-weighted least squares (IRLS) might be more appropriate due to some evidence of deviation from the normality assumption of the model. In subsequent analyses, I use data from the Boston Marathon (2015, 2016, and 2017) and the Madison Marathon (2015, 2016, 2017, and 2018) to explore how pace profiles: 1) differ between races; 2) differ acorss age, gender, and ability level; and 3) how pace profiles on the same course vary by year.
+
+## Data and Methods
+
+### Dataset 1: 37,250 Half and Finish Times
+
+This dataset, made by Jake Vanderplas, contains 37,250 aggregated and anonymized marathon times scraped from the internet. Along with how long it took the runner to complete the full marathon, we also have the time for the first half of the race, the runner's age, and the runner's time. In addition to these variables, I computed the paces for each half and the full race, whether or not the runner ran a Boston Marathon Qualifier (using the 2019 standard, as I do not know the year of these results), and wheter or not the runner finished within the top 10% of their gender. In this dataset, the average finishing time was approximately 4 hours and 48 minutes (SD = 1 hour 3min 32.14 sec), 4:36:28.6 (1:00:57.38) for men and 5:11:2.52 (1:02:15.14) for women.
+
+### Dataset 2: Boston Marathon Results (2015 - 2017)
+
+Results from the 2015, 2016, and 2017 Boston Marathon were acquired from [kaggle](https://www.kaggle.com/rojour/boston-results) and include the runner's name, gender, age, city/state/country of residence, country of citizenship, full marathon time, and intermediate splits at 5km, 10km, 20k, 13.1 miles, 25km, 30km, 35km, and 40km. This dataset also includes intermediate splits for runners who did not finish (DNF) the race.
+
+|Year|Gender|N|Average Finishing Time(sd)|Average Half Split(sd)|Average Pace Difference (Full - Half)|
+|:--:|:----:|:-:|:------------------:|:----------------:|:-----------------------------------:|
+|2015|Male|14581|3h 36m 35.68s (40m 46.31s)|1h 42m 58.74s (17m 22.22s)|10m 37.22s (12m 22.28s)|
+||Female|12017|3h 58m 21.55s (36m 43.13s)|1h 54m 2.24s (15m 57.12s)|10m 16.10s (10m 7.26s)|
+||Total|26598|3h 46m 25.70s (40m 28.12s)|1h 47m 58.33s (17m 37.53s)|10m 27.69s (11m 24.69s)|

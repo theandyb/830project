@@ -31,10 +31,19 @@ This dataset, made by Jake Vanderplas, contains 37,250 aggregated and anonymized
 
 ### Dataset 2: Boston Marathon Results (2015 - 2017)
 
-Results from the 2015, 2016, and 2017 Boston Marathon were acquired from [kaggle](https://www.kaggle.com/rojour/boston-results) and include the runner's name, gender, age, city/state/country of residence, country of citizenship, full marathon time, and intermediate splits at 5km, 10km, 20k, 13.1 miles, 25km, 30km, 35km, and 40km. This dataset also includes intermediate splits for runners who did not finish (DNF) the race.
+Results from the 2015, 2016, and 2017 Boston Marathon were acquired from [kaggle](https://www.kaggle.com/rojour/boston-results) and include the runner's name, gender, age, city/state/country of residence, country of citizenship, full marathon time, and intermediate splits at 5km, 10km, 20k, 13.1 miles, 25km, 30km, 35km, and 40km. 
 
 |Year|Gender|N|Average Finishing Time(sd)|Average Half Split(sd)|Average Pace Difference (Full - Half)|
 |:--:|:----:|:-:|:------------------:|:----------------:|:-----------------------------------:|
 |2015|Male|14581|3h 36m 35.68s (40m 46.31s)|1h 42m 58.74s (17m 22.22s)|10m 37.22s (12m 22.28s)|
 ||Female|12017|3h 58m 21.55s (36m 43.13s)|1h 54m 2.24s (15m 57.12s)|10m 16.10s (10m 7.26s)|
 ||Total|26598|3h 46m 25.70s (40m 28.12s)|1h 47m 58.33s (17m 37.53s)|10m 27.69s (11m 24.69s)|
+|2016|Male|14463|3h 45m 54.57s (41m 15.71s)| 1h 44m 7.79s (17m 21.80s)| 17m 38.81s (14m 17.32s)|
+||Female|12167|4h 5m 54.00s (38m 10.82s)| 1h 55m 52.29s (16m 23.64s)|14m 9.60s (11m 23.66s)|
+||Total|26630|3h 55m 2.58s (41m 6.43s)|1h 49m 49.69s (17m 54.54s)|16m 3.22s (13m .66s)|
+|2017|Male|14438|3h 48m 54.69s (42m 52.34s)|1h 45m 13.11s (17m 48.41s)| 18m 27.82s (15m 21.76s)|
+||Female|11972|4h 9 m 5.48s (38m 28.01s)|1h 56m 52.37s (16m 42.81s)|15m 20.45s (12m 13.61s)|
+||Total|26410|3h 58m 3.56s (42m 8.88s)|1h 50m 30.11s (18m 15.92s)|17m 2.88s (14m 6.83s)|
+
+### Dataset 3: Madison Marathon Results (2015 - 2018)
+Results from the 2015, 2016, 2017, and 2018 Madison Marathon were scrapped from onlineraceresults.com using the [NAME OF CHROME EXTENSION]. For each year, we have the name, age group, gender, finsish time, half time, and intermediate splits at

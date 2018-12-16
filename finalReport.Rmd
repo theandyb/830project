@@ -23,11 +23,11 @@ Marathons, races that are 26.2 miles (~42.2km) in length, have seen their popula
 
 Here in this report, I attempt to quantify how pace profiles differ across these factors. In my first analysis, I incorrectly apply GEE to a dataset containing the half split and full marathon time from 37,250 runners from an anonymized dataset that I found on github. I then use a more appropriate linear regression model and argue that a more robust method like iteratively re-weighted least squares (IRLS) might be more appropriate due to some evidence of deviation from the normality assumption of the model. In subsequent analyses, I use data from the Boston Marathon (2015, 2016, and 2017) and the Madison Marathon (2015, 2016, 2017, and 2018) to explore how pace profiles: 1) differ between races; 2) differ acorss age, gender, and ability level; and 3) how pace profiles on the same course vary by year.
 
-## Data and Methods
+## Data
 
-### Dataset 1: 37,250 Half and Finish Times
+### Dataset 1 - Vanderplas Anonymized Marathon Times (VAMT): 37,250 Half and Finish Times
 
-This dataset, made by Jake Vanderplas, contains 37,250 aggregated and anonymized marathon times scraped from the internet. Along with how long it took the runner to complete the full marathon, we also have the time for the first half of the race, the runner's age, and the runner's time. In addition to these variables, I computed the paces for each half and the full race, whether or not the runner ran a Boston Marathon Qualifier (using the 2019 standard, as I do not know the year of these results), and wheter or not the runner finished within the top 10% of their gender. In this dataset, the average finishing time was approximately 4 hours and 48 minutes (SD = 1 hour 3min 32.14 sec), 4:36:28.6 (1:00:57.38) for men and 5:11:2.52 (1:02:15.14) for women.
+The VAMT dataset, made by Jake Vanderplas, contains 37,250 aggregated and anonymized marathon times scraped from the internet. Along with how long it took the runner to complete the full marathon, we also have the time for the first half of the race, the runner's age, and the runner's time. In addition to these variables, I computed the paces for each half and the full race, whether or not the runner ran a Boston Marathon Qualifier (using the 2019 standard, as I do not know the year of these results), and wheter or not the runner finished within the top 10% of their gender. In this dataset, the average finishing time was approximately 4 hours and 48 minutes (SD = 1 hour 3min 32.14 sec), 4:36:28.6 (1:00:57.38) for men and 5:11:2.52 (1:02:15.14) for women.
 
 ### Dataset 2: Boston Marathon Results (2015 - 2017)
 
@@ -46,4 +46,44 @@ Results from the 2015, 2016, and 2017 Boston Marathon were acquired from [kaggle
 ||Total|26410|3h 58m 3.56s (42m 8.88s)|1h 50m 30.11s (18m 15.92s)|17m 2.88s (14m 6.83s)|
 
 ### Dataset 3: Madison Marathon Results (2015 - 2018)
-Results from the 2015, 2016, 2017, and 2018 Madison Marathon were scrapped from onlineraceresults.com using the [NAME OF CHROME EXTENSION]. For each year, we have the name, age group, gender, finsish time, half time, and intermediate splits at
+Results from the 2015, 2016, 2017, and 2018 Madison Marathon were scrapped from onlineraceresults.com using the [NAME OF CHROME EXTENSION]. For each year, we have the name, age group, gender, finsish time, half time, and intermediate splits at 10km and 30km for 2015-2017. In the 2018 results, we have intermediate times at 2 miles, 10km, 15.9 miles, and 20 miles. Summary information for these datasets can be found in the appendix.
+
+## Methods
+
+### Pacing Profiles in Dataset 1
+
+To analyze the differences in pacing profile across age, gender, and ability level in the VAMT dataset, we fit the following linear regression model:
+
+$$log(y_i) = $$
+
+```{r}
+df1['relDiff'] <- df1$diffPace / df1$fullPace
+df1['ageN2'] <- df1$ageN ** 2
+fit4 <- glm(relDiff ~ ageN + factor(gender) + factor(BQ) + factor(top10Q) + ageN2, 
+            data = df1, family = gaussian())
+summary(fit4)
+```
+
+# Conclusion
+
+## Future Work
+
+### Idea 1: Longitudinal Study of Pacing Profiles
+
+A question of interest in regards to pace profiles is whether or not these change as a runner becomes more experienced, with the idea being that as a runner runs more races, his or her profile shifts from that having a slower half to one that is more evenly paced (if not running a faster second half). While we could try to use a proxy measure in a cross-sectional study like this (i.e., use placing in the top 10% as a measure of "ability/experience"), it could potentially be more informative to study the pacing profiles of a cohort of runners as they run their first, second, ..., etc races. 
+
+Difficulties in performing such a study include: 
+
+1. First-time marathoners differ in their running histories (example: a former collegiate runner might run with a more even pacing profile than someone who picked up running recently with the sole focus of completing the distance).
+
+2. It's highly unlikely that a large group of people will run the same sequence of races, or even the same number of races in a given window of time.
+
+3. Acquiring the data is time consuming, and its not always possible to get the intermediate split times for past races (for example, the author was only able to acquire intermediate split times for 7 of the 10 marathons he's run).
+
+### Idea 2: Pacing Profiles of Other Distances (Notably: Half Marathon)
+
+Another question of interest is how do pacing profiles of half marathon runners vary across age, gender, and experience? While only half the distance of a marathon, the half marathon is still long enough to require an informed pacing strategy to avoid hitting the proverbial wall. Along with the difficulties encountered in the above analyses of the full mararhon datasets, half marathons add the additional challenge in that not only do the intermediate splits differ across races, it's unusal to see a split at the half-way point (the author was unable to find any results of his that included a "quarter-marathon" split; most had some combination of 5km/10km/10mile).
+
+It might also be interesting to compare pacing profiles for individuals who run both half and full marathons. It would be challenging to acquire this dataset, and additional confounders might impact any such analysis (for example, someone training for a full marathon might include a half-marathon in their training, but might race it more conservatively than if the half-marathon had been their goal race).
+
+# Appendix

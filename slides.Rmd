@@ -309,7 +309,7 @@ print(xtable(fit3), type = "html")
 
 ```{r model4, results='asis'}
 fit4 <- lm(relDiff ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df)
-print(xtable(fit3), type = "html")
+print(xtable(fit4), type = "html")
 ```
 ---
 class: center, middle

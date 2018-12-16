@@ -1,0 +1,143 @@
+---
+title: "Boston Marathon Analysis"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r libs, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+library(broom)
+```  
+The dataset used in this analysis can be found on [kaggle.com](https://www.kaggle.com/rojour/boston-results). It includes finishing times, half marathon splits, and 5km-spaced intermediate splits for the 2015, 2016, and 2017 races.
+
+Let's import the data:
+
+```{r message=FALSE, warning=FALSE}
+boston2015 <- read_csv("data/boston/2015.csv", progress = FALSE)
+boston2016 <- read_csv("data/boston/2016.csv", progress = FALSE)
+boston2017 <- read_csv("data/boston/2017.csv", progress = FALSE)
+
+boston2015 <- boston2015 %>% select(-starts_with("X"))
+boston2016 <- boston2016 %>% select(-starts_with("X"))
+boston2017 <- boston2017 %>% select(-starts_with("X"))
+```
+
+Let's take a quick peek at the data:
+
+```{r}
+kable(head(boston2015))
+```
+```{r}
+kable(head(boston2016))
+```
+```{r}
+kable(head(boston2017))
+```
+
+Great! Let's start trying to summarize the data we have.
+
+# Characterization Of Missingness
+
+# Pacing Profiles - Year by Year
+
+Question: How do people run the second half of the race realtive to the first (on average)?
+
+```{r message=FALSE, warning=FALSE}
+boston2015['secondHalf'] <- boston2015$`Official Time` - boston2015$Half
+boston2015['secondRelFirst'] <- as.numeric(boston2015$secondHalf) / as.numeric(boston2015$Half)
+boston2015 %>% ggplot(aes(x = secondRelFirst)) + geom_histogram() + 
+  xlab("Second Half Pace Relative to First Half Pace") + ggtitle("2015 Boston Marathon")
+```
+
+```{r message=FALSE, warning=FALSE}
+boston2016['secondHalf'] <- boston2016$`Official Time` - boston2016$Half
+boston2016['secondRelFirst'] <- as.numeric(boston2016$secondHalf) / as.numeric(boston2016$Half)
+boston2016 %>% ggplot(aes(x = secondRelFirst)) + geom_histogram() + 
+  xlab("Second Half Pace Relative to First Half Pace") + ggtitle("2016 Boston Marathon")
+```
+
+```{r message=FALSE, warning=FALSE}
+boston2017['secondHalf'] <- boston2017$`Official Time` - boston2017$Half
+boston2017['secondRelFirst'] <- as.numeric(boston2017$secondHalf) / as.numeric(boston2017$Half)
+boston2017 %>% ggplot(aes(x = secondRelFirst)) + geom_histogram() + 
+  xlab("Second Half Pace Relative to First Half Pace") + ggtitle("2017 Boston Marathon")
+```
+
+### Question: do we see any significant difference between pace profiles in different years?
+
+```{r}
+boston2015['year'] <- 2015
+boston2016['year'] <- 2016
+boston2017['year'] <- 2017
+
+df_all <- rbind(boston2015, boston2016) %>% rbind(boston2017)
+
+res.aov <- aov(secondRelFirst ~ factor(year), data = df_all)
+kable(tidy(res.aov))
+kable(glance(res.aov))
+
+fit1 <- lm(secondRelFirst ~ factor(year), data = df_all)
+kable(tidy(fit1), digits = 7)
+```
+
+It looks that there is technically a significant difference in the ratio of second half pace to first half pace between the years, this looks to be largely driven by 2015 having a smaller average ratio than the other two years (1.09 versus 1.15 and 1.15), which might be due to the weather (2015 was cooler than 2016 and 2017, with starting temperature of 41°F versus 67°F for 2016 and 72°F for 2017) [[source](http://findmymarathon.com/weather-detail.php?zname=Boston%20Marathon&year=)].
+
+### Question: Do we see differences in pace profiles by gender?
+
+```{r message=FALSE, warning=FALSE}
+boston2015 %>% ggplot(aes(x = secondRelFirst, fill = `M/F`)) + 
+  geom_histogram(alpha=0.3, position="identity") +
+  xlab("Second Half Pace / First Half Pace") + ylab("Frequency") +
+  ggtitle("2015 Pace Profiles by Gender")
+```
+
+```{r message=FALSE, warning=FALSE}
+boston2016 %>% ggplot(aes(x = secondRelFirst, fill = `M/F`)) + 
+  geom_histogram(alpha=0.3, position="identity") +
+  xlab("Second Half Pace / First Half Pace") + ylab("Frequency") +
+  ggtitle("2016 Pace Profiles by Gender")
+```
+
+```{r message=FALSE, warning=FALSE}
+boston2017 %>% ggplot(aes(x = secondRelFirst, fill = `M/F`)) + 
+  geom_histogram(alpha=0.3, position="identity") +
+  xlab("Second Half Pace / First Half Pace") + ylab("Frequency") +
+  ggtitle("2017 Pace Profiles by Gender")
+```
+
+```{r}
+kable(tidy(lm(secondRelFirst ~ `M/F`, data=boston2015)))
+kable(tidy(lm(secondRelFirst ~ `M/F`, data=boston2016)))
+kable(tidy(lm(secondRelFirst ~ `M/F`, data=boston2017)))
+```
+
+# More granular view of pacing profile over the course of the race
+
+```{r}
+boston2015x <- boston2015 %>% mutate(seg1 = `5K`,
+                                    seg2 = `10K` - `5K`,
+                                    seg3 = `15K` - `10K`,
+                                    seg4 = `20K` - `15K`,
+                                    seg5 = `25K` - `20K`,
+                                    seg6 = `30K` - `25K`,
+                                    seg7 = `35K` - `30K`,
+                                    seg8 = `40K` - `35K`) %>%
+  select(seg1:seg8, Pace, `M/F`)
+boston2015x <- boston2015x %>% mutate(pace1 = as.numeric(seg1)/3.10686,
+                                      pace2 = as.numeric(seg2)/3.10686,
+                                      pace3 = as.numeric(seg3)/3.10686,
+                                      pace4 = as.numeric(seg4)/3.10686,
+                                      pace5 = as.numeric(seg5)/3.10686,
+                                      pace6 = as.numeric(seg6)/3.10686,
+                                      pace7 = as.numeric(seg7)/3.10686,
+                                      pace8 = as.numeric(seg8)/3.10686)
+boston2015x['Id'] <- seq(1, length(boston2015x$seg1))
+boston2015_tall <- gather(boston2015x, segment, pace, pace1:pace8) %>% 
+  select(Id, `M/F`, Pace, segment, pace)
+sampIds <- sample(unique(boston2015_tall$Id), 100, replace = FALSE)
+boston2015_tall %>% filter(Id %in% sampIds) %>% 
+  ggplot(aes(x=segment, y = pace, group = factor(Id), color = factor(`M/F`))) + geom_line()
+```
+

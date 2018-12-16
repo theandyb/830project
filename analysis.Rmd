@@ -10,9 +10,9 @@ library(hms)
 ```
 
 ```{r}
-#df <- read_csv("data/marathon-data.csv")
+#df1 <- read_csv("data/marathon-data.csv")
 #names(df)[3] <- "firstHalf"
-df <- read_tsv("data/marathon_wide.tsv")
+df1 <- read_tsv("data/marathon_wide.tsv")
 head(df)
 ```
 
@@ -53,19 +53,19 @@ is_bq <- function(x, gender, age){
   }
 }
 
-#df <- df %>% mutate(halfPace = secs_per_mile(firstHalf, 13.1),
+#df1 <- df1 %>% mutate(halfPace = secs_per_mile(firstHalf, 13.1),
 #                    fullPace = secs_per_mile(final, 26.2),
 #                    secondHalf = hms::hms(as.numeric(final - firstHalf)),
 #                    secondHalfPace = secs_per_mile(secondHalf, 13.1))
-#df <- df %>% 
+#df1 <- df1 %>% 
 #  rowwise() %>% 
 #  mutate(BQ = is_bq(final, gender, age))
 
-#df['diffPace'] <- df$secondHalfPace - df$halfPace
-#df['ID'] <- seq(1, length(df$age))
+#df1['diffPace'] <- df1$secondHalfPace - df1$halfPace
+#df1['ID'] <- seq(1, length(df1$age))
 
-# q10M <- df %>% filter(gender == "M") %>% pull(fullPace) %>% quantile(0.10)
-# q10W <- df %>% filter(gender == "W") %>% pull(fullPace) %>% quantile(0.10)
+# q10M <- df1 %>% filter(gender == "M") %>% pull(fullPace) %>% quantile(0.10)
+# q10W <- df1 %>% filter(gender == "W") %>% pull(fullPace) %>% quantile(0.10)
 # 
 # in_top_10 <- function(x, gender){
 #   if(gender == "M" & x <= q10M) return(1)
@@ -73,7 +73,7 @@ is_bq <- function(x, gender, age){
 #   else return(0)
 # }
 # 
-# df <- df %>%
+# df1 <- df1 %>%
 #   rowwise() %>%
 #   mutate(top10Q = in_top_10(fullPace, gender))
 
@@ -83,28 +83,28 @@ is_bq <- function(x, gender, age){
 # Histograms
 
 ```{r}
-df %>% ggplot(aes(x = halfPace)) + geom_histogram() +
+df1 %>% ggplot(aes(x = halfPace)) + geom_histogram() +
   scale_x_continuous(name = "Half Time (pace/mile)", breaks = c(250, 500, 750, 1000, 1250), 
                      labels = c("54:35 (4:10)", "1:49:10 (8:20)", "2:43:35 (12:30)", "3:38:20 (16:40)", "4:32:55 (20:50)")) +
   ylab("Frequency") + ggtitle("Half Marathon Split Times")
 ```
 
 ```{r}
-df %>% ggplot(aes(x = fullPace)) + geom_histogram()  +
+df1 %>% ggplot(aes(x = fullPace)) + geom_histogram()  +
   scale_x_continuous(name = "Full Time (pace/mile)", breaks = c(250, 500, 750, 1000, 1250), 
                      labels = c("1:49:10 (4:10)", "3:38:20 (8:20)", "5:27:30 (12:30)", "7:16:40 (16:40)", "9:05:50 (20:50)")) +
   ylab("Frequency") + ggtitle("Marathon Times")
 ```
 
 ```{r}
-df %>% ggplot(aes(x = diffPace)) + geom_histogram()
+df1 %>% ggplot(aes(x = diffPace)) + geom_histogram()
 ```
 
 # Tall Data
 
 ```{r}
-df["ageN"] <- scale(df$age)
-df_tall <- df %>% select(ID, ageN, gender, BQ, fullPace, halfPace, secondHalfPace) %>%
+df1["ageN"] <- scale(df1$age)
+df_tall <- df1 %>% select(ID, ageN, gender, BQ, fullPace, halfPace, secondHalfPace) %>%
   gather(segment, pace, halfPace:secondHalfPace)
 
 head(df_tall)
@@ -130,5 +130,14 @@ fit2 <- geeglm(RelPace ~ ageN + factor(gender) + factor(BQ) + factor(segment), f
 
 anova(fit1, fit2)
 
+df1['relDiff'] <- df1$diffPace / df1$fullPace
+df1['ageN2'] <- df1$ageN ** 2
+fit4 <- glm(relDiff ~ ageN + factor(gender) + factor(BQ) + factor(top10Q) + ageN2, 
+            data = df1, family = gaussian())
+
+# Ward-inspired model
+fit1 <- glm(relDiff ~ factor(gender) + ageN + factor(BQ) + factor(top10Q) +
+              ageN * factor(gender) + ageN * factor(BQ) + factor(gender) * factor(BQ)+
+              ageN2, data=df1)
 ```
 

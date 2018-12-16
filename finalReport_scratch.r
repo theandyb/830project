@@ -106,3 +106,36 @@ boston2017 %>% filter(`M/F` == "M") %>% pull(Diff) %>% mean(na.rm =T) %>% lubrid
 boston2017 %>% filter(`M/F` == "M") %>% pull(Diff) %>% sd(na.rm =T) %>% lubridate::seconds_to_period()
 boston2017 %>% pull(Diff) %>% mean(na.rm =T) %>% lubridate::seconds_to_period()
 boston2017 %>% pull(Diff) %>% sd(na.rm =T) %>% lubridate::seconds_to_period()
+
+### MADISON BASIC STATS
+for(x in names(madison2015)){
+  print(paste0(x, " - ", sum(is.na(madison2015[,x]))))
+}
+
+for(x in names(madison2016)){
+  print(paste0(x, " - ", sum(is.na(madison2016[,x]))))
+}
+
+for(x in names(madison2017)){
+  print(paste0(x, " - ", sum(is.na(madison2017[,x]))))
+}
+
+for(x in names(madison2018)){
+  print(paste0(x, " - ", sum(is.na(madison2018[,x]))))
+}
+
+madison2015 <- madison2015 %>% mutate(nMiss = is.na(`10K`) + is.na(HALF) + is.na(`30K`))
+madison2016 <- madison2016 %>% mutate(nMiss = is.na(`10K`) + is.na(Half) + is.na(`30K`))
+madison2017 <- madison2017 %>% mutate(nMiss = is.na(`10K`) + is.na(Half) + is.na(`30K`))
+madison2018 <- madison2018 %>% mutate(
+  nMiss2 = is.na(`10K`) + 
+    is.na(HALF.MARATHON) + is.na(`15.9.MILE`) + is.na(`20.MILE`))
+
+table(madison2015$nMiss)
+table(madison2016$nMiss)
+table(madison2017$nMiss)
+table(madison2018$nMiss)
+
+### VAMT Analysis
+df1['relDiff'] <- df1$diffPace / df1$fullPace
+fit4 <- lm(relDiff ~ ageN * factor(gender) + factor(BQ) + factor(top10Q), data = df1)

@@ -2,7 +2,10 @@
 title: "830 Semester Project"
 author: "Andy Beck"
 date: "December 17, 2018"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -10,26 +13,76 @@ knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(tidyverse)
 library(broom)
+library("geepack")
+
+source('report_functions.r')
 
 df1 <- read_tsv("data/marathon_wide.tsv")
-boston2015 <- read_csv("data/boston/2015.csv") 
+boston2015 <- read_csv("data/boston/2015.csv", progress = FALSE)
+boston2016 <- read_csv("data/boston/2016.csv", progress = FALSE)
+boston2017 <- read_csv("data/boston/2017.csv", progress = FALSE)
+
+boston2015 <- boston2015 %>% select(-starts_with("X"))
+boston2016 <- boston2016 %>% select(-starts_with("X"))
+boston2017 <- boston2017 %>% select(-starts_with("X"))
+
+boston2015['secondHalf'] <- boston2015$`Official Time` - boston2015$Half
+boston2015['secondRelFirst'] <- as.numeric(boston2015$secondHalf) / as.numeric(boston2015$Half)
+boston2016['secondHalf'] <- boston2016$`Official Time` - boston2016$Half
+boston2016['secondRelFirst'] <- as.numeric(boston2016$secondHalf) / as.numeric(boston2016$Half)
+boston2017['secondHalf'] <- boston2017$`Official Time` - boston2017$Half
+boston2017['secondRelFirst'] <- as.numeric(boston2017$secondHalf) / as.numeric(boston2017$Half)
+
+boston2015['year'] <- 2015
+boston2016['year'] <- 2016
+boston2017['year'] <- 2017
+
+boston2015["ageN"] <- scale(boston2015$Age)
+boston2016["ageN"] <- scale(boston2016$Age)
+boston2017["ageN"] <- scale(boston2017$Age)
+
+q10M2015 <- boston2015 %>% filter(`M/F` == "M") %>% pull(Pace) %>% quantile(0.20)
+q10W2015 <- boston2015 %>% filter(`M/F` == "F") %>% pull(Pace) %>% quantile(0.20)
+q10M2016 <- boston2015 %>% filter(`M/F` == "M") %>% pull(Pace) %>% quantile(0.20)
+q10W2016 <- boston2015 %>% filter(`M/F` == "F") %>% pull(Pace) %>% quantile(0.20)
+q10M2017 <- boston2015 %>% filter(`M/F` == "M") %>% pull(Pace) %>% quantile(0.20)
+q10W2017 <- boston2015 %>% filter(`M/F` == "F") %>% pull(Pace) %>% quantile(0.20)
+
+in_top_20 <- function(x, gender, q10M, q10W){
+  if(gender == "M" & x <= q10M) return(1)
+  else if (gender == "F" & x <= q10W) return(1)
+  else return(0)
+}
+
+boston2015 <- boston2015 %>%
+  rowwise() %>%
+  mutate(top20Q = in_top_20(Pace, `M/F`, q10M2015, q10W2015))
+boston2016 <- boston2016 %>%
+  rowwise() %>%
+  mutate(top20Q = in_top_20(Pace, `M/F`, q10M2016, q10W2016))
+boston2017 <- boston2017 %>%
+  rowwise() %>%
+  mutate(top20Q = in_top_20(Pace, `M/F`, q10M2017, q10W2017))
+
+
+boston2015_tall <- boston_tall_gen(boston2015)
+boston2016_tall <- boston_tall_gen(boston2016)
+boston2017_tall <- boston_tall_gen(boston2017)
 ```
 
-## Abstract
+# Introduction
 
-## Introduction
+Marathons, races that are 26.2 miles (~42.2km) in length, have seen their popularity in the United States grow in the recent past, peaking in 2014 where an estimated 550,600 runners completed a marathon in the United States [CITE ME]. Goals for these runners can vary from wanting to compete for a victory to just wanting to finish, but in general annecdotal evidence seems to suggest that at least those who run more than one seek to improve upon previous performances. Previous scientific study of marathon runners focused more rigorously on understanding how nutrition [@jeukendrup_2011], running mechanics and energy cost over the course of a marathon [@hausswirth_bigard_guezennec_1997] impact race performance. Little work has been published that evaluates pacing strategy, with most of these articles concluding that steady pacing over the race yields better results than changing pace over the race [@angus_2013]. Even less work has been done to evaluate differences in pace strategy across age, gender, different courses, and ability level.
 
-Marathons, races that are 26.2 miles (~42.2km) in length, have seen their popularity in the United States grow in the recent past, peaking in 2014 where an estimated 550,600 runners completed a marathon in the United States [CITE ME]. Goals for these runners can vary from wanting to compete for a victory to just wanting to finish, but in general annecdotal evidence seems to suggest that at least those who run more than one seek to improve upon previous performances. Previous scientific study of marathon runners focused more rigorously on understanding how nutrition [CITE ME], running mechanics [CITE ME] and energy cost over the course of a marathon impact race performance. Little work has been published that evaluates pacing strategy, with most of these articles concluding that steady pacing over the race yields better results than changing pace over the race [CITATIONS]. Even less work has been done to evaluate differences in pace strategy across age, gender, different courses, and ability level.
+Here in this report, I attempt to quantify how pace profiles differ across these factors. In my first analysis, I incorrectly apply GEE to a dataset containing the half split and full marathon time from 37,250 runners from an anonymized dataset that I found on github. I then use a more appropriate linear regression model and argue that a more robust method like iteratively re-weighted least squares (IRLS) might be more appropriate due to some evidence of deviation from the normality assumption of the model. In subsequent analyses, I use data from the Boston Marathon (2015, 2016, and 2017) to explore how pace profiles: 1) differ acorss age, gender, and ability level; and 2) how pace profiles on the same course vary by year.
 
-Here in this report, I attempt to quantify how pace profiles differ across these factors. In my first analysis, I incorrectly apply GEE to a dataset containing the half split and full marathon time from 37,250 runners from an anonymized dataset that I found on github. I then use a more appropriate linear regression model and argue that a more robust method like iteratively re-weighted least squares (IRLS) might be more appropriate due to some evidence of deviation from the normality assumption of the model. In subsequent analyses, I use data from the Boston Marathon (2015, 2016, and 2017) and the Madison Marathon (2015, 2016, 2017, and 2018) to explore how pace profiles: 1) differ between races; 2) differ acorss age, gender, and ability level; and 3) how pace profiles on the same course vary by year.
+# Data and Methods
 
-## Data
-
-### Dataset 1 - Vanderplas Anonymized Marathon Times (VAMT): 37,250 Half and Finish Times
+## Dataset 1 - Vanderplas Anonymized Marathon Times (VAMT): 37,250 Half and Finish Times
 
 The VAMT dataset, made by Jake Vanderplas, contains 37,250 aggregated and anonymized marathon times scraped from the internet. Along with how long it took the runner to complete the full marathon, we also have the time for the first half of the race, the runner's age, and the runner's time. In addition to these variables, I computed the paces for each half and the full race, whether or not the runner ran a Boston Marathon Qualifier (using the 2019 standard, as I do not know the year of these results), and wheter or not the runner finished within the top 10% of their gender. In this dataset, the average finishing time was approximately 4 hours and 48 minutes (SD = 1 hour 3min 32.14 sec), 4:36:28.6 (1:00:57.38) for men and 5:11:2.52 (1:02:15.14) for women.
 
-### Dataset 2: Boston Marathon Results (2015 - 2017)
+## Dataset 2: Boston Marathon Results (2015 - 2017)
 
 Results from the 2015, 2016, and 2017 Boston Marathon were acquired from [kaggle](https://www.kaggle.com/rojour/boston-results) and include the runner's name, gender, age, city/state/country of residence, country of citizenship, full marathon time, and intermediate splits at 5km, 10km, 20k, 13.1 miles, 25km, 30km, 35km, and 40km. 
 
@@ -45,26 +98,92 @@ Results from the 2015, 2016, and 2017 Boston Marathon were acquired from [kaggle
 ||Female|11972|4h 9 m 5.48s (38m 28.01s)|1h 56m 52.37s (16m 42.81s)|15m 20.45s (12m 13.61s)|
 ||Total|26410|3h 58m 3.56s (42m 8.88s)|1h 50m 30.11s (18m 15.92s)|17m 2.88s (14m 6.83s)|
 
-### Dataset 3: Madison Marathon Results (2015 - 2018)
-Results from the 2015, 2016, 2017, and 2018 Madison Marathon were scrapped from onlineraceresults.com using the [NAME OF CHROME EXTENSION]. For each year, we have the name, age group, gender, finsish time, half time, and intermediate splits at 10km and 30km for 2015-2017. In the 2018 results, we have intermediate times at 2 miles, 10km, 15.9 miles, and 20 miles. Summary information for these datasets can be found in the appendix.
+<!-- ### Dataset 3: Madison Marathon Results (2015 - 2018) -->
+<!-- Results from the 2015, 2016, 2017, and 2018 Madison Marathon were scrapped from onlineraceresults.com using the [scraper chrome extension](https://chrome.google.com/webstore/detail/scraper/mbigbapnjcgaffohmbkdlecaccepngjd?hl=en). For each year, we have the name, age group, gender, finsish time, half time, and intermediate splits at 10km and 30km for 2015-2017. In the 2018 results, we have intermediate times at 2 miles, 10km, 15.9 miles, and 20 miles. Summary information for this dataset can be found in the appendix. -->
 
 ## Methods
 
-### Pacing Profiles in Dataset 1
+### Pacing Profiles in VAMT Data
 
-To analyze the differences in pacing profile across age, gender, and ability level in the VAMT dataset, we fit the following linear regression model:
+To analyze the differences in pacing profile across age, gender, and ability level in the VAMT dataset, I fit the following linear regression model:
 
-$$log(y_i) = $$
+$$y_i = \beta_0 + \beta_1  \textrm{gender}_i + \beta_2  \textrm{age}_i + \beta_3  \textrm{BQ}_i + \beta_4 \textrm{gender}_i * \textrm{age}_i + \beta_5  \textrm{BQ}_i * \textrm{age}_i + \beta_6  \textrm{BQ}_i * \textrm{gender}_i + \beta_7 \textrm{age}_i^2 + \epsilon_i$$
 
-```{r}
-df1['relDiff'] <- df1$diffPace / df1$fullPace
-df1['ageN2'] <- df1$ageN ** 2
-fit4 <- glm(relDiff ~ ageN + factor(gender) + factor(BQ) + factor(top10Q) + ageN2, 
-            data = df1, family = gaussian())
-summary(fit4)
+where $y_i$ is $\frac{(\textrm{second half pace}_i - \textrm{first half pace}_i )}{\textrm{overall pace}_i}$, $\epsilon_i \sim_{iid} N(0, \sigma^2)$, and age has been normalized. This model was chosen to include the covariates analyized by [@reese_ward]. This dataset only includes the half and full splits, so we don't have a very granular view of how pacing changes on average over the race, but we can nonetheless evaluate how changes in pacing during the second half of the race might be influenced by factors such as age, gender, and ability level. Due to evidence of deviation from normality (see appendix), we also fit a more robust, IRLS model with the same covariates.
+
+### Pacing Profiles in Boston Marathon Data
+
+In the Boston Marathon data, we have a much more granular view of how the pacing profile for an individual changes over the course of the race thanks to intermediate splits being available every 5km. We'd like to again look at the relationship between age, gender, ability level, and pacing over the course of the marathon. To do this, we will model the relative pace of each 5km segment (compared to the overall pace of the marathon) as a linear function of age, gender, and whether or not the individual finished in the top 20% of their gender.
+
+Each individual has his or her own unique pacing profile, as demonstrated in the plot below. We'd like our method to allow for variation in each individual's profile, but ultimately our interest is in population level effect estimates for our covariates. For this analysis, we use GEE to estimate the population-averaged effects of our covariates. We fit separate models for each individual year, as there is some evidence that the pacing profiles vary across the years (in particular, the ratio of the pace of the second half over the pace of the first half is on average smaller in 2015 than in 2016 and 2017 (see appendix); this might be due to the weather having been cooler in 2015). For our working correlation model, we use the AR1 correlation structure as our working correlation model, since it seems reasonable to assume that two adjacent segments for an individual are more alike than two segments further apart from each other.
+
+```{r pacePlot, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(1234)
+sampIds <- sample(unique(boston2016_tall$Id), 100, replace = FALSE)
+boston2016_tall %>% filter(Id %in% sampIds) %>% 
+  ggplot(aes(x=segment, y = relPace, group = factor(Id), color = factor(Gender))) + geom_line() +
+  scale_x_discrete(labels = 1:8) + xlab("5km Segment") + ylab("Pace (seconds/mile)") +
+  scale_color_discrete(name = "Gender") + ggtitle("5km Segment Paces Relative to Overall Marathon Pace (2016)")
 ```
 
-# Conclusion
+# Results
+
+## VAMT Dataset Analysis
+**Linear Model**
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df1['relDiff'] <- df1$diffPace / df1$fullPace
+df1['ageN2'] <- df1$ageN ** 2
+fit1 <- lm(relDiff ~ factor(gender) + ageN + factor(BQ) + factor(top10Q) +
+              ageN * factor(gender) + ageN * factor(BQ) + factor(gender) * factor(BQ)+
+              ageN2, data=df1)
+kable(tidy(fit1))
+```
+
+**IRLS Model**
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+fit1_rob <- MASS::rlm(relDiff ~ factor(gender) + ageN + factor(BQ) + factor(top10Q) +
+              ageN * factor(gender) + ageN * factor(BQ) + factor(gender) * factor(BQ)+
+              ageN2, data=df1)
+kable(tidy(fit1_rob), digits = 9)
+```
+
+From the above table, there seems to be evidence that the difference in second half pace to the first half pace relative to overall pace varies across age, gender, and our two measures of ability (Boston qualifier and top 10 percentile). In particular, this model suggests that female runners, older runners, runners of "lower ability" slow down more in the second half of the race. There does not appear to be a significant interaction between age and gender or gender and the Boston Qualifier indicator. The effect of age appears to be moderated by the Boston Qualifier status, with Boston Qualifiers being less impacted by age.
+
+## Boston Marathon Analysis (GEE)
+
+**2015**
+```{r bosMod1, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+boston2015_tall <- boston2015_tall %>% mutate(segment = gsub("relPace", "", segment))
+fit2 <- geeglm(relPace ~ as.numeric(segment) + ageN + factor(Gender) + factor(top20Q)+
+                as.numeric(segment) * factor(Gender), data = boston2015_tall, id = Id, family = gaussian, corstr = "ar1")
+kable(tidy(fit2), digits = 9)
+```
+
+**2016**
+
+```{r bosMod2, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+boston2016_tall <- boston2016_tall %>% mutate(segment = gsub("relPace", "", segment))
+fit3 <- geeglm(relPace ~ as.numeric(segment) + ageN + factor(Gender) + factor(top20Q)+
+                as.numeric(segment) * factor(Gender), data = boston2016_tall, id = Id, family = gaussian, corstr = "ar1")
+kable(tidy(fit3), digits = 9)
+```
+
+**2017**
+
+```{r bosMod3, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+boston2017_tall <- boston2017_tall %>% mutate(segment = gsub("relPace", "", segment))
+fit4 <- geeglm(relPace ~ as.numeric(segment) + ageN + factor(Gender) + factor(top20Q) +
+                as.numeric(segment) * factor(Gender) , data = boston2017_tall, id = Id, family = gaussian, corstr = "ar1")
+kable(tidy(fit4), digits = 9)
+```
+
+Along with each individual covariate, we also include an interaction term between segment and gender. It appears that in all three years, on average runners slowed down as the race progressed (as indicated by the positive coefficient for segment number). Although overall males tended to have lower segment paces relative to their overall times, the positive coefficient for the segment-by-gender interaction suggests that males tended to slow down more over the course of the marathon.
+
+# Conclusion and Ideas for Future Work
+
+In this analysis, I evaluated the relationship between pacing profiles for a marathon and covariates gender, age, and proxies for ability/experience. While these results demonstrate that pacing profiles (whether defined by comparing the second half of a race with the first half or by the change in pace over 5km segments of the race) on average vary across age, gender, and ability, these analyses only begin to break the surface and bring forward more questions than they answer. For example, we see variability in pacing profiles across different years of the Boston marathon (appendix), but we have yet to explore how the average pacing profile varies across different courses. I have results from another marathon over the same period of time, but did not have time to figure out the best way to compare these datasets (the main hurdle being different intermediate split times between not only the two races, but differences across years in the same race).
+
+Had this report not been put together for a course on estimating equations, I probably would have explored alternative modeling approaches for the Boston dataset. In particular, I'd be interested in seeing how a mixed-model approach would have fit the data (accounting for individuals having their own unique profiles), or maybe try to reproduce the bayesian approach of [@reese_ward]. Another issue I didn't have time to tackle was missingness. In the appendix, I summarize the missingness in the intermediate splits for the Boston marathon results. It would be interesting to evaluate different impuation methods to try and fill in missing values, which would be similar to work done by [@hammerling2014], who sought to predict finishing times for individuals who were unable to complete the 2013 Boston Marathon due to the two bombs detonated near the finish line. 
 
 ## Future Work
 
@@ -86,4 +205,70 @@ Another question of interest is how do pacing profiles of half marathon runners 
 
 It might also be interesting to compare pacing profiles for individuals who run both half and full marathons. It would be challenging to acquire this dataset, and additional confounders might impact any such analysis (for example, someone training for a full marathon might include a half-marathon in their training, but might race it more conservatively than if the half-marathon had been their goal race).
 
+## Idea 3: Using Profiles in Rank Courses by Difficulty
+
+Intuitively, a more difficult course might produce more drastic differences in pacing between the first and second half. Would a tougher course encourage more people to run a more modest pace in the first half, or would runners start at the same pace they'd use on an easier course and then subsequently slow down more over the second half? If the latter was the case, then the average pace profile could be a tool to use in measuring the difficulty of the course, and this would be easier to acquire data to compute (as opposed to trying to gather times for the same set of runners across different races and seeing how their pacing profile on the course of interest differed from the average pacing profile on other courses). It would also be of interest to start with a list of courses ranked under some criterion of difficulty and evaluate the differences of pace profiles across varying difficulties.
+
 # Appendix
+
+## QQ Plot for VAMT Linear Regression Model
+
+```{r qqplot, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
+car::qqPlot(fit1, main="QQ Plot")
+```
+
+## Missingness in the Boston Marathon Data
+
+### 2015
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+tmp <- boston2015 %>% select(`5K`, `10K`, `15K`, `20K`,Half, `25K`,`30K`, `35K`, `40K`) %>% sapply(function(x) sum(is.na(x)))
+kable(tmp, col.names = c("nMissing"))
+```
+
+### 2016
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+tmp <- boston2016 %>% select(`5K`, `10K`, `15K`, `20K`,Half, `25K`,`30K`, `35K`, `40K`) %>% sapply(function(x) sum(is.na(x)))
+kable(tmp, col.names = c("nMissing"))
+```
+
+### 2017
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+tmp <- boston2017 %>% select(`5K`, `10K`, `15K`, `20K`,Half, `25K`,`30K`, `35K`, `40K`) %>% sapply(function(x) sum(is.na(x)))
+kable(tmp, col.names = c("nMissing"))
+```
+
+## Second Half over First Half Pace By Year in the Boston Marathon Data
+
+As a quick check to see if pacing profiles varied by year in the Boston Marathon data, I computed the pace for the first and second half of the race for each individual, and the ratio of the two (second over the first). While the historgram of the ratios look similar across all three years, note that the average in 2015 is less than both 2016 and 2017. A simple one-way ANOVA test indicates that the average ratio is not the same across all three years, and it would appear that this result is driven by the lower values seen in 2015.
+
+```{r ratioPlots, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+boston2015['year'] <- 2015
+boston2016['year'] <- 2016
+boston2017['year'] <- 2017
+
+df_all <- rbind(boston2015, boston2016) %>% rbind(boston2017)
+
+df_all %>% ggplot(aes(x = secondRelFirst, group = factor(year), fill=factor(year))) + geom_density(alpha = 0.5) +
+  xlab("Second Half Pace Relative to First Half Pace") + ggtitle("Second Half Pace / First Half Place by Year")
+```
+
+**ANOVA: First Half Pace / Second Half Pace ~ Year**
+
+```{r aovRes, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+res.aov <- aov(secondRelFirst ~ factor(year), data = df_all)
+kable(tidy(res.aov))
+```
+
+**Simple Linear Model: First Half Pace / Second Half Pace ~ Year**
+
+Note the similar values of the covariates for 2015 and 2016.
+
+```{r lmResAov, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+fit1 <- lm(secondRelFirst ~ factor(year), data = df_all)
+kable(tidy(fit1), digits = 7)
+```
+
+# References

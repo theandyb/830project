@@ -9,6 +9,7 @@ output:
 library(tidyverse)
 library(knitr)
 library(broom)
+source('report_functions.r')
 ```  
 The dataset used in this analysis can be found on [kaggle.com](https://www.kaggle.com/rojour/boston-results). It includes finishing times, half marathon splits, and 5km-spaced intermediate splits for the 2015, 2016, and 2017 races.
 
@@ -22,6 +23,34 @@ boston2017 <- read_csv("data/boston/2017.csv", progress = FALSE)
 boston2015 <- boston2015 %>% select(-starts_with("X"))
 boston2016 <- boston2016 %>% select(-starts_with("X"))
 boston2017 <- boston2017 %>% select(-starts_with("X"))
+
+boston2015["ageN"] <- scale(boston2015$Age)
+boston2016["ageN"] <- scale(boston2016$Age)
+boston2017["ageN"] <- scale(boston2017$Age)
+
+q10M2015 <- boston2015 %>% filter(`M/F` == "M") %>% pull(Pace) %>% quantile(0.20)
+q10W2015 <- boston2015 %>% filter(`M/F` == "F") %>% pull(Pace) %>% quantile(0.20)
+q10M2016 <- boston2015 %>% filter(`M/F` == "M") %>% pull(Pace) %>% quantile(0.20)
+q10W2016 <- boston2015 %>% filter(`M/F` == "F") %>% pull(Pace) %>% quantile(0.20)
+q10M2017 <- boston2015 %>% filter(`M/F` == "M") %>% pull(Pace) %>% quantile(0.20)
+q10W2017 <- boston2015 %>% filter(`M/F` == "F") %>% pull(Pace) %>% quantile(0.20)
+
+in_top_20 <- function(x, gender, q10M, q10W){
+  if(gender == "M" & x <= q10M) return(1)
+  else if (gender == "F" & x <= q10W) return(1)
+  else return(0)
+}
+
+boston2015 <- boston2015 %>%
+  rowwise() %>%
+  mutate(top20Q = in_top_20(Pace, `M/F`, q10M2015, q10W2015))
+boston2016 <- boston2016 %>%
+  rowwise() %>%
+  mutate(top20Q = in_top_20(Pace, `M/F`, q10M2016, q10W2016))
+boston2017 <- boston2017 %>%
+  rowwise() %>%
+  mutate(top20Q = in_top_20(Pace, `M/F`, q10M2017, q10W2017))
+
 ```
 
 Let's take a quick peek at the data:
@@ -61,7 +90,7 @@ boston2016 %>% ggplot(aes(x = secondRelFirst)) + geom_histogram() +
 ```{r message=FALSE, warning=FALSE}
 boston2017['secondHalf'] <- boston2017$`Official Time` - boston2017$Half
 boston2017['secondRelFirst'] <- as.numeric(boston2017$secondHalf) / as.numeric(boston2017$Half)
-boston2017 %>% ggplot(aes(x = secondRelFirst)) + geom_histogram() + 
+boston2017 %>% ggplot(aes(x = secondRelFirst)) + geom_density() + 
   xlab("Second Half Pace Relative to First Half Pace") + ggtitle("2017 Boston Marathon")
 ```
 
@@ -115,29 +144,44 @@ kable(tidy(lm(secondRelFirst ~ `M/F`, data=boston2017)))
 
 # More granular view of pacing profile over the course of the race
 
-```{r}
-boston2015x <- boston2015 %>% mutate(seg1 = `5K`,
-                                    seg2 = `10K` - `5K`,
-                                    seg3 = `15K` - `10K`,
-                                    seg4 = `20K` - `15K`,
-                                    seg5 = `25K` - `20K`,
-                                    seg6 = `30K` - `25K`,
-                                    seg7 = `35K` - `30K`,
-                                    seg8 = `40K` - `35K`) %>%
-  select(seg1:seg8, Pace, `M/F`)
-boston2015x <- boston2015x %>% mutate(pace1 = as.numeric(seg1)/3.10686,
-                                      pace2 = as.numeric(seg2)/3.10686,
-                                      pace3 = as.numeric(seg3)/3.10686,
-                                      pace4 = as.numeric(seg4)/3.10686,
-                                      pace5 = as.numeric(seg5)/3.10686,
-                                      pace6 = as.numeric(seg6)/3.10686,
-                                      pace7 = as.numeric(seg7)/3.10686,
-                                      pace8 = as.numeric(seg8)/3.10686)
-boston2015x['Id'] <- seq(1, length(boston2015x$seg1))
-boston2015_tall <- gather(boston2015x, segment, pace, pace1:pace8) %>% 
-  select(Id, `M/F`, Pace, segment, pace)
+```{r message=FALSE, warning=FALSE}
+boston2015_tall <- boston_tall_gen(boston2015)
+set.seed(1234)
 sampIds <- sample(unique(boston2015_tall$Id), 100, replace = FALSE)
 boston2015_tall %>% filter(Id %in% sampIds) %>% 
-  ggplot(aes(x=segment, y = pace, group = factor(Id), color = factor(`M/F`))) + geom_line()
+  ggplot(aes(x=segment, y = relPace, group = factor(Id), color = factor(Gender))) + geom_line() +
+  scale_x_discrete(labels = 1:8) + xlab("5km Segment") + ylab("Pace (seconds/mile)") +
+  scale_color_discrete(name = "Gender") + ggtitle("5km Segment Paces Relative to Overall Marathon Pace(2015)")
+
 ```
 
+```{r}
+boston2016_tall <- boston_tall_gen(boston2016)
+set.seed(1234)
+sampIds <- sample(unique(boston2016_tall$Id), 100, replace = FALSE)
+boston2016_tall %>% filter(Id %in% sampIds) %>% 
+  ggplot(aes(x=segment, y = relPace, group = factor(Id), color = factor(Gender))) + geom_line() +
+  scale_x_discrete(labels = 1:8) + xlab("5km Segment") + ylab("Pace (seconds/mile)") +
+  scale_color_discrete(name = "Gender") + ggtitle("5km Segment Paces Relative to Overall Marathon Pace (2016)")
+```
+
+# Let's fit some models!
+
+```{r}
+library("geepack")
+boston2015_tall <- boston2015_tall %>% mutate(segment = gsub("relPace", "", segment))
+fit2 <- geeglm(relPace ~ as.numeric(segment) + ageN + factor(Gender) + factor(top20Q), data = boston2015_tall, id = Id, family = gaussian, corstr = "ind")
+kable(tidy(fit2))
+```
+
+```{r}
+boston2016_tall <- boston2016_tall %>% mutate(segment = gsub("relPace", "", segment))
+fit3 <- geeglm(relPace ~ as.numeric(segment) + ageN + factor(Gender) + factor(top20Q), data = boston2016_tall, id = Id, family = gaussian, corstr = "ind")
+kable(tidy(fit3))
+```
+
+```{r}
+boston2017_tall <- boston2017_tall %>% mutate(segment = gsub("relPace", "", segment))
+fit4 <- geeglm(relPace ~ as.numeric(segment) + ageN + factor(Gender) + factor(top20Q), data = boston2017_tall, id = Id, family = gaussian, corstr = "ind")
+kable(tidy(fit4))
+```
